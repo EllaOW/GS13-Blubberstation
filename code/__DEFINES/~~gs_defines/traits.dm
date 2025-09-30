@@ -41,6 +41,20 @@
 #define TRAIT_MILKY				"milky" //basically faster milk production
 #define TRAIT_BIOFUEL			"biofuel_processor"
 
+//GS13 helplessness quirks
+#define TRAIT_HELPLESS_IMMOBILITY		"immobile_helpless"
+#define TRAIT_HELPLESS_CLUMSY			"clumsy_helpless"
+#define TRAIT_HELPLESS_NEARSIGHTED		"nearsighted_helpless"
+#define TRAIT_HELPLESS_HIDDEN_FACE		"hidden_face_helpless"
+#define TRAIT_HELPLESS_MUTE				"mute_helpless"
+#define TRAIT_HELPLESS_IMMOBILE_ARMS	"immobile_arms_helpless"
+#define TRAIT_HELPLESS_CLOTHING			"clothing_bursting_helpless"
+#define TRAIT_HELPLESS_BACKPACKS		"backpacks_helpless"
+#define TRAIT_HELPLESS_BELTS			"belts_bursting_helpless"
+#define TRAIT_HELPLESS_NO_BUCKLE		"no_buckle_helpless"
+#define TRAIT_HELPLESS_CHAIR_DESTROYER	"chair_breaking_helpless"
+#define TRAIT_HELPLESS_STUCKAGE			"stuckage_helpless"
+
 //GS13 Port
 #define TRAIT_HEADPAT_SLUT		"headpat_slut"
 #define TRAIT_NEVER_CLONE       "donotclone"
