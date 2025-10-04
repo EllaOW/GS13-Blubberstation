@@ -1,6 +1,6 @@
 //GS13
 #define TRAIT_WEIGHT_LOSS_IMMUNE "weight_loss_immune"
-#define TRAIT_UNIVERSAL_GAINER "universal_gainer"
+#define TRAIT_UNIVERSAL_GAINER "universal_gainer"	// WARNING! IF YOU USE THIS: I (Swan) HAVE HIJACKED THIS TRAIT TO OVERRIDE WG SOURCE PREFS, MAX WEIGHT AND WG/L RATE! USE CAREFULLY!
 #define TRAIT_NO_MOVE "no_move"
 #define TRAIT_NO_MISC "no_misc"
 #define TRAIT_NO_BELT "no_belt"
@@ -44,8 +44,7 @@
 //GS13 helplessness quirks
 #define TRAIT_HELPLESS_IMMOBILITY		"immobile_helpless"
 #define TRAIT_HELPLESS_CLUMSY			"clumsy_helpless"
-#define TRAIT_HELPLESS_NEARSIGHTED		"nearsighted_helpless"
-#define TRAIT_HELPLESS_HIDDEN_FACE		"hidden_face_helpless"
+#define TRAIT_HELPLESS_BIG_CHEEKS		"big_cheeks"
 #define TRAIT_HELPLESS_MUTE				"mute_helpless"
 #define TRAIT_HELPLESS_IMMOBILE_ARMS	"immobile_arms_helpless"
 #define TRAIT_HELPLESS_CLOTHING			"clothing_bursting_helpless"
@@ -54,6 +53,9 @@
 #define TRAIT_HELPLESS_NO_BUCKLE		"no_buckle_helpless"
 #define TRAIT_HELPLESS_CHAIR_DESTROYER	"chair_breaking_helpless"
 #define TRAIT_HELPLESS_STUCKAGE			"stuckage_helpless"
+
+// GS13 positive quirks
+#define TRAIT_BLOB_BED					"blob_bed"
 
 //GS13 Port
 #define TRAIT_HEADPAT_SLUT		"headpat_slut"
