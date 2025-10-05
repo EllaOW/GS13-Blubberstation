@@ -538,6 +538,7 @@ export function MainPage(props: MainPageProps) {
   const [currentPrefPage, setCurrentPrefPage] = useState(PrefPage.Visual);
 
   let prefPageContents;
+  let BFI_stages; // GS13 EDIT
   switch (currentPrefPage) {
     case PrefPage.Visual:
       prefPageContents = (
@@ -578,6 +579,18 @@ export function MainPage(props: MainPageProps) {
           maxHeight="auto"
         />
         );
+        BFI_stages = <Section><p>These preferences will allow you to customize how weight gain or other expansion affects you, but make sure to customize it responsibly! They might provide a serious disadvantage once they trigger. If you're playing an important role, try to prioritize roleplay over fetish content.</p><br/>
+        Weight stages:<br/>
+        Rounded - 170<br/>
+        Fat - 250<br/>
+        Very fat - 330<br/>
+        Obese - 440<br/>
+        Morbidly obese - 840<br/>
+        Extremely obese - 1240<br/>
+        Barely mobile - 1840<br/>
+        Immobile - 2540<br/>
+        Blob - 3440<br/>
+        </Section>
         break;
         // GS13 END EDIT
     default:
@@ -750,9 +763,16 @@ export function MainPage(props: MainPageProps) {
                   WG preferences
                 </PageButton>
               </Stack.Item>
-              {/* GS13 END EDIT */}
             </Stack>
-            {prefPageContents}
+            <Stack vertical fill>
+              <Stack.Item>
+              {BFI_stages}
+              </Stack.Item>
+              <Stack.Item>
+              {prefPageContents}
+              </Stack.Item>
+            </Stack>
+            {/* GS13 END EDIT */}
           </Stack>
         </Stack.Item>
         {/* BUBBER EDIT CHANGE END: Swappable pref menus */}
