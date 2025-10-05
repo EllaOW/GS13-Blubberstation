@@ -42,11 +42,11 @@
 	value = 1
 	// gain_text = span_notice("You feel your legs tremble under your weight")
 	// lose_text = span_notice("Your legs seem to have gotten stronger")
-	quirk_flags = QUIRK_HIDE_FROM_SCAN
+	quirk_flags = QUIRK_HUMAN_ONLY | QUIRK_HIDE_FROM_SCAN
 	erp_quirk = FALSE
 	// mob_trait = TRAIT_HELPLESS_IMMOBILITY
 
-/datum/quirk/nutriment_speedup
+/datum/quirk/nutricious_boost
 	name = "Nutricious boost"
 	desc = "All that caloric food is full of energy, and you're great at making good use of it. You get a speed boost while digesting food."
 	icon = "fa-weight-hanging"
@@ -54,21 +54,35 @@
 	value = 5
 	// gain_text = span_notice("You feel your legs tremble under your weight")
 	// lose_text = span_notice("Your legs seem to have gotten stronger")
-	quirk_flags = QUIRK_HIDE_FROM_SCAN
+	quirk_flags = QUIRK_HUMAN_ONLY | QUIRK_HIDE_FROM_SCAN
 	erp_quirk = FALSE
-	// mob_trait = TRAIT_HELPLESS_IMMOBILITY
+	mob_trait = TRAIT_NUTRICIOUS_BOOST
+
+/datum/movespeed_modifier/nutricious_boost
+	blacklisted_movetypes = (FLYING|FLOATING)
+	// multiplicative_slowdown = -0.5
+	conflicts_with = TRAIT_NUTRICIOUS_BOOST
+
+/datum/movespeed_modifier/nutricious_boost/nutriment	// not actually implemented, we need to have WG from food first...
+	multiplicative_slowdown = -0.3
+
+/datum/movespeed_modifier/nutricious_boost/lipoifier
+	multiplicative_slowdown = -0.5
+
+/datum/movespeed_modifier/nutricious_boost/galbanic
+	multiplicative_slowdown = -0.8
 
 /datum/quirk/nutriment_immune_system
 	name = "Surplus nutrients"
 	desc = "Having this much excess calories gives your immune system quite the beefy defense budget! You are less likely to contract diseases and infections depending on weight."
 	icon = "fa-weight-hanging"
-	// medical_record_text = "Patients legs cannot carry heavy weights well."
+	medical_record_text = "Patients immune system benefits greatly from having excess calories available."
 	value = 2
 	// gain_text = span_notice("You feel your legs tremble under your weight")
 	// lose_text = span_notice("Your legs seem to have gotten stronger")
-	quirk_flags = QUIRK_HIDE_FROM_SCAN
+	// quirk_flags = QUIRK_HIDE_FROM_SCAN
 	erp_quirk = FALSE
-	// mob_trait = TRAIT_HELPLESS_IMMOBILITY
+	mob_trait = TRAIT_SURPLUS_NUTRIENTS
 
 /datum/quirk/fat_health
 	name = "Naturally padded"
@@ -80,7 +94,7 @@
 	// lose_text = span_notice("Your legs seem to have gotten stronger")
 	quirk_flags = QUIRK_HIDE_FROM_SCAN
 	erp_quirk = FALSE
-	// mob_trait = TRAIT_HELPLESS_IMMOBILITY
+	mob_trait = TRAIT_NATURALLY_PADDED
 
 /datum/quirk/large_dominance
 	name = "Naturally padded"

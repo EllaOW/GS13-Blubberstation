@@ -373,6 +373,18 @@
 	else
 		H.remove_movespeed_modifier(/datum/movespeed_modifier/fatness)
 
+	if (HAS_TRAIT(H, TRAIT_SURPLUS_NUTRIENTS))
+		if (H.fatness >= FATNESS_LEVEL_FAT)
+			ADD_TRAIT(H, TRAIT_VIRUS_RESISTANCE, TRAIT_SURPLUS_NUTRIENTS)
+		else if (HAS_TRAIT_FROM(H, TRAIT_VIRUS_RESISTANCE, TRAIT_SURPLUS_NUTRIENTS))
+			REMOVE_TRAIT(H, TRAIT_VIRUS_RESISTANCE, TRAIT_SURPLUS_NUTRIENTS)
+
+	if (HAS_TRAIT(H, TRAIT_NATURALLY_PADDED))
+		H.physiology.brute_mod /= H.fatness_brute_resistance_modifier // we remove the old modifier
+		var/brute_resistance = 1 + ((H.fatness - FATNESS_LEVEL_VERYFAT) / FATNESS_LEVEL_IMMOBILE) // we calculate the new one
+		H.physiology.brute_mod *= clamp(brute_resistance, 1, 2) // we add the new one
+		H.fatness_brute_resistance_modifier = brute_resistance // we store it for the next time we do it
+
 	if(HAS_TRAIT(H, TRAIT_BLOB))
 		handle_fatness_trait(
 			TRAIT_BLOB,

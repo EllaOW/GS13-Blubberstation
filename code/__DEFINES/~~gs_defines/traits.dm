@@ -56,6 +56,9 @@
 
 // GS13 positive quirks
 #define TRAIT_BLOB_BED					"blob_bed"
+#define TRAIT_NUTRICIOUS_BOOST			"nutricious_boost"
+#define TRAIT_SURPLUS_NUTRIENTS			"surplus_nutrients"
+#define TRAIT_NATURALLY_PADDED			"naturally_padded"
 
 //GS13 Port
 #define TRAIT_HEADPAT_SLUT		"headpat_slut"

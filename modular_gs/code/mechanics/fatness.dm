@@ -26,6 +26,8 @@
 	var/fullness = FULLNESS_LEVEL_HALF_FULL
 	var/fullness_reduction_timer = 0 // When was the last time they emoted to reduce their fullness
 
+	var/fatness_brute_resistance_modifier = 1	// how much the damage is increased/decreased based on weight
+
 	/// How many humanoid mobs have been digested by this mob?
 	var/carbons_digested = 0
 
