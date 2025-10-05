@@ -1,5 +1,5 @@
 /datum/preference/numeric/starting_fatness
-	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	category = WG_PREFERENCES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "starting_fatness"
 	minimum = FATNESS_LEVEL_NONE
@@ -14,7 +14,7 @@
 
 
 /datum/preference/numeric/weight_gain_rate
-	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	category = WG_PREFERENCES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "weight_gain_rate"
 	minimum = MIN_PREFS_WEIGHT_GAIN_AND_LOSS_RATE
@@ -29,7 +29,7 @@
 
 
 /datum/preference/numeric/weight_loss_rate
-	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	category = WG_PREFERENCES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "weight_loss_rate"
 	minimum = MIN_PREFS_WEIGHT_GAIN_AND_LOSS_RATE
@@ -44,7 +44,7 @@
 
 
 /datum/preference/numeric/max_weight
-	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	category = WG_PREFERENCES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "max_weight"
 	minimum = 0
@@ -57,7 +57,7 @@
 
 
 /datum/preference/toggle/weight_gain_persistent
-	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	category = WG_PREFERENCES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "weight_gain_persistent"
 	default_value = FALSE
@@ -66,7 +66,7 @@
 	return
 
 /datum/preference/toggle/weight_gain_permanent
-	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	category = WG_PREFERENCES
 	savefile_identifier = PREFERENCE_CHARACTER
 	savefile_key = "weight_gain_permanent"
 	default_value = FALSE

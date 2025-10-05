@@ -523,10 +523,16 @@ export function MainPage(props: MainPageProps) {
     delete nonContextualPreferences.random_name;
   }
 
+  // GS13 EDIT
+  const WGPreferences = {
+    ...data.character_preferences.wg_prefs
+  };
+  // GS13 END EDIT
   // BUBBER EDIT ADDITION BEGIN: SWAPPABLE PREF MENUS
   enum PrefPage {
     Visual, // The visual parts
     Lore, // Lore, Flavor Text, Age, Records
+    WGprefs, // GS13 EDIT prefs
   }
 
   const [currentPrefPage, setCurrentPrefPage] = useState(PrefPage.Visual);
@@ -559,6 +565,21 @@ export function MainPage(props: MainPageProps) {
         />
       );
       break;
+      // GS13 EDIT
+      case PrefPage.WGprefs:
+        prefPageContents = (
+        <PreferenceList
+          randomizations={getRandomization(
+            WGPreferences,
+            serverData,
+            randomBodyEnabled,
+          )}
+          preferences={WGPreferences}
+          maxHeight="auto"
+        />
+        );
+        break;
+        // GS13 END EDIT
     default:
       exhaustiveCheck(currentPrefPage);
   }
@@ -719,6 +740,17 @@ export function MainPage(props: MainPageProps) {
                   Character Lore
                 </PageButton>
               </Stack.Item>
+              {/* GS13 EDIT */}
+              <Stack.Item grow={2}>
+                <PageButton
+                  currentPage={currentPrefPage}
+                  page={PrefPage.WGprefs}
+                  setPage={setCurrentPrefPage}
+                >
+                  WG preferences
+                </PageButton>
+              </Stack.Item>
+              {/* GS13 END EDIT */}
             </Stack>
             {prefPageContents}
           </Stack>
