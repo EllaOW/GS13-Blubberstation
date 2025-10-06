@@ -1,3 +1,6 @@
+#define FATTY_COOLDOWN_EXAMINE				"fatty_examine"
+#define PLEASANTLY_SOFT_COOLDOWN_EXAMINE	"pleasantly_soft_examine"
+
 /mob/living
 	var/number_of_helplessness_quirks = 0
 
