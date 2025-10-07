@@ -15,13 +15,13 @@
 /datum/quirk/pleasant_softness/process(seconds_per_tick)
 	if(quirk_holder.stat == DEAD)
 		return
-	if(!TIMER_COOLDOWN_FINISHED(quirk_holder, PLEASANTLY_SOFT_COOLDOWN_EXAMINE)) // 15 second Early return
+	if(!TIMER_COOLDOWN_FINISHED(quirk_holder, PLEASANTLY_SOFT_COOLDOWN)) // 15 second Early return
 		return
 	if(!quirk_holder)
 		return
 	if(!iscarbon(quirk_holder))
 		return
-	
+
 	var/mob/living/carbon/fatty_holder = quirk_holder
 
 	if (fatty_holder.fatness < FATNESS_LEVEL_FATTER)
@@ -37,7 +37,7 @@
 				continue
 			if(HAS_TRAIT(fat_freak, TRAIT_FAT_BAD))
 				continue
-				
+
 			fat_freak.add_mood_event(TRAIT_PLEASANTLY_SOFT, /datum/mood_event/fat_affinity/fat_other)
-	
-	TIMER_COOLDOWN_START(fatty_holder, PLEASANTLY_SOFT_COOLDOWN_EXAMINE, 15 SECONDS)
+
+	TIMER_COOLDOWN_START(quirk_holder, PLEASANTLY_SOFT_COOLDOWN, 15 SECONDS)

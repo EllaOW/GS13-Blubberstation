@@ -3,8 +3,6 @@
 	desc = "You like fat people, alot, maybe even a little bit too much. You are happier when fat, and having fat people around you will make you even happier!"
 	icon = "fa-sort-up"
 	value = 1
-	gain_text = span_notice("You feel like making someone your pet.")
-	lose_text = span_notice("You feel less assertive than before")
 	quirk_flags = QUIRK_HIDE_FROM_SCAN | QUIRK_PROCESSES
 	erp_quirk = FALSE // Disables on ERP config.
 	var/mob/living/carbon/last_fatty
@@ -28,22 +26,23 @@
 // COPY PASTING THE WELL TRAINED QUIRK LETS GOOOOOOOOOOOOOOOOOOOOOOOO
 
 /datum/quirk/fat_affinity/process(seconds_per_tick)
-	if(quirk_holder.stat == DEAD) // Doms can't be dead
+	if(quirk_holder.stat == DEAD)
 		return
-	if(!TIMER_COOLDOWN_FINISHED(quirk_holder, FATTY_COOLDOWN_EXAMINE)) // 15 second Early return
+	if(!TIMER_COOLDOWN_FINISHED(quirk_holder, FAT_AFFINITY_COOLDOWN)) // 15 second Early return
 		return
 	if(!quirk_holder)
 		return
-	
+
 	var/mob/living/carbon/fatty_holder = quirk_holder
 
 	if(iscarbon(quirk_holder) && fatty_holder.fatness > FATNESS_LEVEL_FATTER)
 		quirk_holder.add_mood_event(TRAIT_FAT_GOOD, /datum/mood_event/fat_affinity/fat_self)
+
 	. = FALSE
 	// handles calculating nearby fatties
-	var/list/mob/living/carbon/human/fatties = viewers(world.view / 2, fatty_holder)
+	var/list/mob/living/carbon/fatties = viewers(world.view / 2, fatty_holder)
 	var/highest_weight
-	for(var/mob/living/carbon/human/fatty in fatties)
+	for(var/mob/living/carbon/fatty in fatties)
 		if(fatty != fatty_holder) // ignore our player
 			if(!highest_weight || fatty.fatness > highest_weight) // If original fatty is not fattest, set a new one
 				. = fatty // set parent to new fatty
@@ -51,15 +50,20 @@
 	if(!.) // If there's no fatty nearby
 		last_fatty = null
 		return
-
-	if(last_fatty == . && last_fatty.fatness <= highest_recorded_weight) // Same fatass, don't rerun code.
-		TIMER_COOLDOWN_START(fatty_holder, FATTY_COOLDOWN_EXAMINE, 15 SECONDS)
-		return
+	
+	if(last_fatty == .)
+		if(last_fatty.fatness <= highest_recorded_weight)
+			if(!TIMER_COOLDOWN_FINISHED(quirk_holder, SAME_FATTY_COOLDOWN))
+				return
 
 	last_fatty = . // Set new fatty and run new code
 	highest_recorded_weight = highest_weight
 
-	if (iscarbon(quirk_holder) && last_fatty.fatness < fatty_holder.fatness)
+	if (last_fatty.fatness < FATNESS_LEVEL_FAT)
+		TIMER_COOLDOWN_START(quirk_holder, FAT_AFFINITY_COOLDOWN, 15 SECONDS)
+		return
+
+	if (iscarbon(quirk_holder) && last_fatty.fatness <= fatty_holder.fatness)	// only get excited about other fatties when they're bigger than you. Otherwise what's the point?
 		return
 
 	var/list/notices = list(
@@ -69,12 +73,17 @@
 		"Someone's weight is making you all flustered.",
 		"You start getting excited and sweating."
 	)
-	if (last_fatty.fatness > FATNESS_LEVEL_EXTREMELY_OBESE)
+
+	if (last_fatty.fatness >= FATNESS_LEVEL_EXTREMELY_OBESE)
 		fatty_holder.add_mood_event(TRAIT_FAT_GOOD, /datum/mood_event/fat_affinity/very_fat_other)
-	else if (last_fatty.fatness > FATNESS_LEVEL_FAT)
-		fatty_holder.add_mood_event(TRAIT_FAT_GOOD, /datum/mood_event/fat_affinity/fat_other)
+		fatty_holder.clear_mood_event(TRAIT_FAT_GOOD, /datum/mood_event/fat_affinity/fat_other)
 	else
-		TIMER_COOLDOWN_START(fatty_holder, FATTY_COOLDOWN_EXAMINE, 15 SECONDS)
-		return
-	
+		fatty_holder.add_mood_event(TRAIT_FAT_GOOD, /datum/mood_event/fat_affinity/fat_other)
+
 	to_chat(fatty_holder, span_purple(pick(notices)))
+	TIMER_COOLDOWN_START(quirk_holder, FAT_AFFINITY_COOLDOWN, 15 SECONDS)
+	if (TIMER_COOLDOWN_FINISHED(fatty_holder, SAME_FATTY_COOLDOWN))
+		S_TIMER_COOLDOWN_START(quirk_holder, SAME_FATTY_COOLDOWN, 1 MINUTES)
+	else
+		S_TIMER_COOLDOWN_RESET(quirk_holder, SAME_FATTY_COOLDOWN)
+	// TIMER_COOLDOWN_START(fatty_holder, SAME_FATTY_COOLDOWN, 1 MINUTES)

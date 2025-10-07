@@ -19,28 +19,26 @@
 	mood_change = -1
 	timeout = 3 MINUTES
 
-/datum/quirk/pleasant_softness/process(seconds_per_tick)
+/datum/quirk/fat_aversion/process(seconds_per_tick)
 	if(quirk_holder.stat == DEAD)
 		return
-	if(!TIMER_COOLDOWN_FINISHED(quirk_holder, PLEASANTLY_SOFT_COOLDOWN_EXAMINE)) // 15 second Early return
+	if(!TIMER_COOLDOWN_FINISHED(quirk_holder, FAT_AVERSION_COOLDOWN)) // 15 second Early return
 		return
 	if(!quirk_holder)
 		return
-	if(!iscarbon(quirk_holder))
-		return
-	
+
 	var/mob/living/carbon/fatty_holder = quirk_holder
 
-	if (fatty_holder.fatness >= FATNESS_LEVEL_FATTER)
+	if (iscarbon(quirk_holder) && fatty_holder.fatness >= FATNESS_LEVEL_FATTER)
 		fatty_holder.add_mood_event(TRAIT_FAT_BAD, /datum/mood_event/fat_aversion/self)
 
 	// handles calculating nearby people
-	var/list/mob/living/carbon/human/fat_freaks = viewers(world.view / 2, fatty_holder)
+	var/list/mob/living/carbon/fat_freaks = viewers(world.view / 2, fatty_holder)
 
-	for(var/mob/living/carbon/human/fat_freak in fat_freaks)
+	for(var/mob/living/carbon/fat_freak in fat_freaks)
 		if(fat_freak != fatty_holder) // ignore our player
 			if(fat_freak.fatness > FATNESS_LEVEL_FATTER)
 				fatty_holder.add_mood_event(TRAIT_FAT_BAD, /datum/mood_event/fat_aversion/fat_other)
 				break
-	
-	TIMER_COOLDOWN_START(fatty_holder, PLEASANTLY_SOFT_COOLDOWN_EXAMINE, 15 SECONDS)
+
+	TIMER_COOLDOWN_START(quirk_holder, FAT_AVERSION_COOLDOWN, 15 SECONDS)

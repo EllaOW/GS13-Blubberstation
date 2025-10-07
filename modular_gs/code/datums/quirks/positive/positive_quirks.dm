@@ -33,16 +33,16 @@
 
 	// remove old resistances
 	fatty.dna.species.bodytemp_heat_damage_limit -= heat_resistance
-	fatty.dna.species.bodytemp_cold_damage_limit -= cold_resistance
+	fatty.dna.species.bodytemp_cold_damage_limit += cold_resistance
 
 	// calc new ones
-	var/temperature_resistance = (fatty.fatness - FATNESS_LEVEL_VERYFAT) / FATNESS_LEVEL_IMMOBILE
+	var/temperature_resistance = 20 * (fatty.fatness - FATNESS_LEVEL_VERYFAT) / FATNESS_LEVEL_IMMOBILE
 	heat_resistance = clamp(temperature_resistance / 2, 0, 10)
 	cold_resistance = clamp(temperature_resistance, 0, 20)
 
 	// apply new ones
 	fatty.dna.species.bodytemp_heat_damage_limit += heat_resistance
-	fatty.dna.species.bodytemp_cold_damage_limit += cold_resistance
+	fatty.dna.species.bodytemp_cold_damage_limit -= cold_resistance
 
 // /datum/quirk/fast_metabolism
 // 	name = "Fast metabolism"
@@ -61,7 +61,7 @@
 	desc = "All that caloric food is full of energy, and you're great at making good use of it. You get a speed boost while digesting food."
 	icon = "fa-weight-hanging"
 	medical_record_text = "Patients seems to gain a noticeable speed boost after meals."
-	value = 5
+	value = 4
 	quirk_flags = QUIRK_HUMAN_ONLY | QUIRK_HIDE_FROM_SCAN
 	erp_quirk = FALSE
 	mob_trait = TRAIT_NUTRICIOUS_BOOST
@@ -80,12 +80,24 @@
 /datum/movespeed_modifier/nutricious_boost/galbanic
 	multiplicative_slowdown = -0.8
 
+/datum/quirk/strong_legs
+	name = "Strong legs"
+	desc = "Your legs are used to carrying heavy loads. Being fat slows you down less. You can still become immobile, though."
+	icon = "fa-weight-hanging"
+	medical_record_text = "Patients legs can carry heavy weights well."
+	value = 1
+	gain_text = span_notice("Your legs seem to have gotten stronger")
+	lose_text = span_notice("You feel your legs tremble under your weight")
+	quirk_flags = 0
+	erp_quirk = FALSE
+	mob_trait = TRAIT_STRONGLEGS
+
 /datum/quirk/nutriment_immune_system
 	name = "Surplus nutrients"
 	desc = "Having this much excess calories gives your immune system quite the beefy defense budget! You are less likely to contract diseases and infections depending on weight."
 	icon = "fa-weight-hanging"
 	medical_record_text = "Patients immune system benefits greatly from having excess calories available."
-	value = 2
+	value = 3
 	quirk_flags = QUIRK_HIDE_FROM_SCAN | QUIRK_PROCESSES
 	erp_quirk = FALSE
 	mob_trait = TRAIT_SURPLUS_NUTRIENTS
@@ -114,7 +126,7 @@
 	quirk_flags = QUIRK_HIDE_FROM_SCAN | QUIRK_PROCESSES
 	erp_quirk = FALSE
 	mob_trait = TRAIT_NATURALLY_PADDED
-	var/brute_resistance = 1
+	var/damage_resistance = 1
 
 /datum/quirk/fat_health/process(seconds_per_tick)
 	// make sure it's a human
@@ -124,11 +136,13 @@
 	var/mob/living/carbon/human/fatty = quirk_holder
 
 	// remove old modifier
-	fatty.physiology.brute_mod /= brute_resistance
+	fatty.physiology.brute_mod *= damage_resistance
+	fatty.physiology.tox_mod *= damage_resistance
 
 	// calc the new one
-	brute_resistance = 1 + ((fatty.fatness - FATNESS_LEVEL_VERYFAT) / (FATNESS_LEVEL_BLOB - FATNESS_LEVEL_VERYFAT)) // we divide by (FATNESS_LEVEL_BLOB - FATNESS_LEVEL_VERYFAT) so that at FATNESS_LEVEL_BLOB the expression equals 2
-	brute_resistance = clamp(brute_resistance, 1, 2)
+	damage_resistance = 1 + ((fatty.fatness - FATNESS_LEVEL_VERYFAT) / (FATNESS_LEVEL_BLOB - FATNESS_LEVEL_VERYFAT)) // we divide by (FATNESS_LEVEL_BLOB - FATNESS_LEVEL_VERYFAT) so that at FATNESS_LEVEL_BLOB the expression equals 2
+	damage_resistance = clamp(damage_resistance, 1, 2)
 
 	// apply the new one
-	fatty.physiology.brute_mod *= brute_resistance
+	fatty.physiology.brute_mod /= damage_resistance
+	fatty.physiology.tox_mod /= damage_resistance

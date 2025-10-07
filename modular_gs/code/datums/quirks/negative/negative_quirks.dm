@@ -1,5 +1,17 @@
+/datum/quirk/weak_legs
+	name = "Very Weak legs"
+	desc = "Your legs can't carry the heaviest of weights. You will become much slower when fat."
+	icon = "fa-weight-hanging"
+	medical_record_text = "Patients legs cannot carry heavy weights well."
+	value = -1
+	gain_text = span_notice("You feel your legs tremble under your weight")
+	lose_text = span_notice("Your legs seem to have gotten stronger")
+	quirk_flags = 0
+	erp_quirk = FALSE
+	mob_trait = TRAIT_WEAKLEGS
+
 /datum/quirk/helplessness/immobile
-	name = "Weak legs"
+	name = "Very Weak legs"
 	desc = "Your legs can't carry the heaviest of weights. At a certain BFI you will become unable to move. WARNING! PICKING THIS QUIRK WILL MAKE YOU IMMOBILE REGARDLESS OF YOUR IMMOBILITY PREFERENCE!"
 	icon = "fa-weight-hanging"
 	medical_record_text = "Patients legs cannot carry heavy weights well."
@@ -27,7 +39,7 @@
 	desc = "Your cheeks seem to bloat up exceptionally with weight, reducing your visibility. WARNING! PICKING THIS QUIRK WILL MAKE YOU NEARSIGHTED REGARDLESS OF YOUR NEARSIGHTEDNESS/HIDDEN FACE PREFERENCE!"
 	icon = "fa-glasses"
 	medical_record_text = "Patients cheeks seem to accumulate significant amount of adipose, leading to worse eyesight at higher weights."
-	value = -3
+	value = -5
 	gain_text = span_notice("Your cheeks seem to intrude on your vision")
 	lose_text = span_notice("Your cheeks no longer decrease your vision")
 	quirk_flags = 0
