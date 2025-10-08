@@ -21,10 +21,10 @@
 	foodtype = GRAIN | VEGETABLES | DAIRY | MEAT | JUNKFOOD | ANTITOXIC
 
 	var/slicelist = list(/obj/item/food/pizzaslice/framewrecker/mushroom,
-						 /obj/item/food/pizzaslice/framewrecker/veggie,
-						 /obj/item/food/pizzaslice/framewrecker/cheese,
-						 /obj/item/food/pizzaslice/framewrecker/pineapple,
-						 /obj/item/food/pizzaslice/framewrecker/meat)
+							/obj/item/food/pizzaslice/framewrecker/veggie,
+							/obj/item/food/pizzaslice/framewrecker/cheese,
+							/obj/item/food/pizzaslice/framewrecker/pineapple,
+							/obj/item/food/pizzaslice/framewrecker/meat)
 
 
 

@@ -513,8 +513,8 @@
 				</ol>
 				<p>
 				<hr>
-                <h1><u>Chapter 1</u></h1>
-                <h2>What is GATO? </h2>
+				<h1><u>Chapter 1</u></h1>
+				<h2>What is GATO? </h2>
 				<p>
 				GATO Industrial Concern is a corporation that operates in every sector known to all sapients. Agriculture, luxurious goods, R&D, pharmaceuticals- if it exists, we make it! Your current employment is upon a....: <p>
 				GENERAL STATION
@@ -530,19 +530,19 @@
 				, thought otherwise! So, GatoMart was founded, and we were instantly known for our creativity. Cute designs and friendly service built us the profit and recognition we needed to expand! And expand we did, taking on more and more corporations under our wing until we became the way we are today. Now, you can find Gato products all across the galaxy, ranging from simple things like cheese slices to more complex heavy artillery platforms! Isn't it grand to participate in maintaining such an awesome corporation like ours?
 				<p>
 				<hr>
-                <h1><u>Chapter 3</u></h1>
-                <h2>The current state of Gato</h2>
+				<h1><u>Chapter 3</u></h1>
+				<h2>The current state of Gato</h2>
 				<p>
 				Many people have begun to circulate bad rumors that Gato is beginning to decline. Dear employees, as honest, loving, and trustworthy employers, we must deny those claims! The Syndicate does not pose much of a threat, and we have continued to profit despite the odds! So do not fear, neither your wages nor your employment are currently at risk. We would never think of doing something that would cause such anguish to the members of our beloved company! Perhaps it is time to go onto a more pleasant topic... how the corporate hierarchy works! At the bottom, we have common workers, above that are your Department Heads, and above that is your Captain! And your Captain answers to our Central Command teams, who are subordinate to the Head of Central Command, who reports to the Branch Manager, who answers to the Executive Officers, who answer to the CEO(Chief Executive Officer!), who answers to the Board of Directors. The Board of Directors equally listens to the input of our most trusted shareholders, and the Head of the Board!
 				<p>
-                <h1><u>Chapter 4</u></h1>
-                <h2>GS13: Current development projects</h2>
+				<h1><u>Chapter 4</u></h1>
+				<h2>GS13: Current development projects</h2>
 				<p>
 				(GS13 SECTOR PRINT EXCLUSIVE SECTION) As an employee of our thirteenth General Station, you've chosen (or have been chosen) to become a pioneer in some of our R&D projects! GS13 has been located in a relatively peaceful area of one of the rim-systems, home to immensely rare mineral known as "Calorite", exclusive to this sector! You'll get a chance to make your name in history by helping us furthen our knowledge of this strange material. Additionally, please be aware of employee shortages: GS13's location makes it a challenge to properly deliver supplies, but GATO assures you - you have nothing to worry about!
 				<p>
 				Got it? Good! Now you understand all that you might need to know about Gato Industrial Concern!
 				<p>
-                <hr>
+				<hr>
 
 
 

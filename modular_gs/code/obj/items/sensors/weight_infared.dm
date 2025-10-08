@@ -37,14 +37,14 @@
 			src, "None") as null|anything in list(
 			"None", "Fat", "Fatter", "Very Fat", "Obese", "Morbidly Obese", "Extremely Obese", "Barely Mobile", "Immobile", "Blob")
 		if(!fatness_type)
-			return		
+			return
 
-		var/fatness_amount = 0	
+		var/fatness_amount = 0
 		switch(fatness_type)
 			if("Fat")
 				fatness_amount = FATNESS_LEVEL_FAT
 			if("Fatter")
-				fatness_amount = FATNESS_LEVEL_FATTER 
+				fatness_amount = FATNESS_LEVEL_FATTER
 			if("Very Fat")
 				fatness_amount = FATNESS_LEVEL_VERYFAT
 			if("Obese")
@@ -59,8 +59,8 @@
 				fatness_amount = FATNESS_LEVEL_IMMOBILE
 			if("Blob")
 				fatness_amount = FATNESS_LEVEL_BLOB
-			
-		fatness_to_trigger = fatness_amount	
+
+		fatness_to_trigger = fatness_amount
 		update_icon()
 		refreshBeam()
 
