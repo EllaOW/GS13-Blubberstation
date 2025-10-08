@@ -3,8 +3,10 @@ import { filter, map } from 'es-toolkit/compat';
 import { type ReactNode, useState } from 'react';
 import { type sendAct, useBackend } from 'tgui/backend';
 import {
+  BlockQuote,
   Box,
   Button,
+  Divider,
   Floating,
   Input,
   LabeledList,
@@ -24,7 +26,7 @@ import {
   type FeatureChoicedServerData,
   FeatureValueInput,
 } from '../preferences/features/base';
-import { Gender, GENDERS } from '../preferences/gender';
+import { GENDERS, Gender } from '../preferences/gender';
 import {
   createSetPreference,
   type PreferencesMenuData,
@@ -525,7 +527,7 @@ export function MainPage(props: MainPageProps) {
 
   // GS13 EDIT
   const WGPreferences = {
-    ...data.character_preferences.wg_prefs
+    ...data.character_preferences.wg_prefs,
   };
   // GS13 END EDIT
   // BUBBER EDIT ADDITION BEGIN: SWAPPABLE PREF MENUS
@@ -566,9 +568,9 @@ export function MainPage(props: MainPageProps) {
         />
       );
       break;
-      // GS13 EDIT
-      case PrefPage.WGprefs:
-        prefPageContents = (
+    // GS13 EDIT
+    case PrefPage.WGprefs:
+      prefPageContents = (
         <PreferenceList
           randomizations={getRandomization(
             WGPreferences,
@@ -578,21 +580,36 @@ export function MainPage(props: MainPageProps) {
           preferences={WGPreferences}
           maxHeight="auto"
         />
-        );
-        BFI_stages = <Section><p>These preferences will allow you to customize how weight gain or other expansion affects you, but make sure to customize it responsibly! They might provide a serious disadvantage once they trigger. If you're playing an important role, try to prioritize roleplay over fetish content.</p><br/>
-        Weight stages:<br/>
-        Rounded - 170<br/>
-        Fat - 250<br/>
-        Very fat - 330<br/>
-        Obese - 440<br/>
-        Morbidly obese - 840<br/>
-        Extremely obese - 1240<br/>
-        Barely mobile - 1840<br/>
-        Immobile - 2540<br/>
-        Blob - 3440<br/>
+      );
+      BFI_stages = (
+        <Section>
+          <BlockQuote>
+            These preferences will allow you to customize how weight gain or
+            other expansion affects you, but make sure to customize it
+            responsibly! They might provide a serious disadvantage once they
+            trigger. If you're playing an important role, try to prioritize
+            roleplay over fetish content.
+          </BlockQuote>
+          <Divider />
+          <b>Weight Stages (in BFI):</b>
+          <br />
+          <br />
+          <LabeledList>
+            <LabeledList.Item label="Rounded">170</LabeledList.Item>
+            <LabeledList.Item label="Fat">250</LabeledList.Item>
+            <LabeledList.Item label="Very fat">330</LabeledList.Item>
+            <LabeledList.Item label="Obese">440</LabeledList.Item>
+            <LabeledList.Item label="Morbidly obese">840</LabeledList.Item>
+            <LabeledList.Item label="Extremely obese">1240</LabeledList.Item>
+            <LabeledList.Item label="Barely mobile">1840</LabeledList.Item>
+            <LabeledList.Item label="Imobile">2540</LabeledList.Item>
+            <LabeledList.Item label="Blob">3440</LabeledList.Item>
+          </LabeledList>
+          <br />
         </Section>
-        break;
-        // GS13 END EDIT
+      );
+      break;
+    // GS13 END EDIT
     default:
       exhaustiveCheck(currentPrefPage);
   }
@@ -765,12 +782,8 @@ export function MainPage(props: MainPageProps) {
               </Stack.Item>
             </Stack>
             <Stack vertical fill>
-              <Stack.Item>
-              {BFI_stages}
-              </Stack.Item>
-              <Stack.Item>
-              {prefPageContents}
-              </Stack.Item>
+              <Stack.Item>{BFI_stages}</Stack.Item>
+              <Stack.Item>{prefPageContents}</Stack.Item>
             </Stack>
             {/* GS13 END EDIT */}
           </Stack>
