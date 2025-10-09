@@ -59,9 +59,9 @@
 // 	erp_quirk = FALSE
 // 	// mob_trait = TRAIT_HELPLESS_IMMOBILITY
 
-/datum/quirk/nutricious_boost
+/datum/quirk/helplessness/nutricious_boost
 	name = "Nutricious boost"
-	desc = "All that caloric food is full of energy, and you're great at making good use of it. You get a speed boost while digesting food."
+	desc = "All that caloric food is full of energy, and you're great at making good use of it. You get a speed boost while digesting food. WARNING! TAKING THIS QUIRK WILL LOCK YOUR CHARACTER INTO WG MECHANICS!"
 	icon = "fa-weight-hanging"
 	medical_record_text = "Patients seems to gain a noticeable speed boost after meals."
 	value = 4
