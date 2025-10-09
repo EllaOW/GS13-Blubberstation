@@ -1,5 +1,5 @@
 /datum/quirk/weak_legs
-	name = "Very Weak legs"
+	name = "Weak legs"
 	desc = "Your legs can't carry the heaviest of weights. You will become much slower when fat."
 	icon = "fa-weight-hanging"
 	medical_record_text = "Patients legs cannot carry heavy weights well."
@@ -13,7 +13,7 @@
 /datum/quirk/helplessness/immobile
 	name = "Very Weak legs"
 	desc = "Your legs can't carry the heaviest of weights. At a certain BFI you will become unable to move. WARNING! PICKING THIS QUIRK WILL MAKE YOU IMMOBILE REGARDLESS OF YOUR IMMOBILITY PREFERENCE!"
-	icon = "fa-weight-hanging"
+	icon = "fa-weight-scale"
 	medical_record_text = "Patients legs cannot carry heavy weights well."
 	value = -8
 	gain_text = span_notice("You feel your legs tremble under your weight")
@@ -23,7 +23,7 @@
 	mob_trait = TRAIT_HELPLESS_IMMOBILITY
 
 /datum/quirk/helplessness/clumsy
-	name = "Clumsy fatass"
+	name = "Sausage fingers"
 	desc = "Weight seems to rob you of your dexterity. WARNING! PICKING THIS QUIRK WILL MAKE YOU CLUMSY REGARDLESS OF YOUR CLUMSINESS PREFERENCE!"
 	icon = "fa-scale-unbalanced"
 	medical_record_text = "Patient seems to lose their hands dexterity at higher weights."
@@ -71,13 +71,13 @@
 	mob_trait = TRAIT_HELPLESS_IMMOBILE_ARMS
 
 /datum/quirk/helplessness/clothing
-	name = "Clothing"
-	desc = "Your legs can't carry the heaviest of weights. At a certain BFI you will become unable to move. WARNING! PICKING THIS QUIRK WILL MAKE YOU IMMOBILE REGARDLESS OF YOUR IMMOBILITY PREFERENCE!"
+	name = "Tight clothes"
+	desc = "Your clothing never seems to fit you right. At higher weight, your clothing will burst. WARNING! PICKING THIS QUIRK WILL MAKE YOU BURST OUT OF CLOTHES REGARDLESS OF YOUR CLOTHES BURSTING PREFERENCE!"
 	icon = "fa-weight-hanging"
 	medical_record_text = "Patients legs cannot carry heavy weights well."
 	value = -8
-	gain_text = span_notice("You feel your legs tremble under your weight")
-	lose_text = span_notice("Your legs seem to have gotten stronger")
+	gain_text = span_notice("Your clothes creak quietly")
+	lose_text = span_notice("Your clothes feel more comfortable")
 	quirk_flags = 0
 	erp_quirk = FALSE		// this is a lie, however we do it because we want it always on
 	mob_trait = TRAIT_HELPLESS_CLOTHING
@@ -97,7 +97,7 @@
 /datum/quirk/helplessness/clothing_back
 	name = "Rolls-back"
 	desc = "Your back seems to accumulate a lot of adipose. At a certain BFI you will become unable to wear anything on your back. WARNING! PICKING THIS QUIRK WILL MAKE YOU IMMOBILE REGARDLESS OF YOUR IMMOBILITY PREFERENCE!"
-	icon = "fa-weight-hanging"
+	icon = "fa-suitcase"
 	medical_record_text = "Patients legs cannot carry heavy weights well."
 	value = -8
 	gain_text = span_notice("You feel your legs tremble under your weight")

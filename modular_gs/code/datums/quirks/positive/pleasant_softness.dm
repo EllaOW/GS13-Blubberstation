@@ -1,15 +1,16 @@
 /datum/quirk/pleasant_softness
 	name = "Pleasant Softness"
 	desc = "Your curves are nice and soft. People just can't get enough of them."
-	icon = "fa-weight-hanging"
+	icon = "fa-mattress-pillow"
 	value = 2
 	quirk_flags = QUIRK_HIDE_FROM_SCAN | QUIRK_PROCESSES
 	erp_quirk = FALSE
 	mob_trait = TRAIT_PLEASANTLY_SOFT
 
 /datum/mood_event/fatties_love
-	description = span_nicegreen("Someone around me is so ") + span_boldnicegreen("fat") + span_nicegreen(" and ") + span_boldnicegreen("soft") + span_nicegreen("!!")
-	mood_change = 3
+	// description = span_nicegreen("Someone around me is so ") + span_boldnicegreen("fat") + span_nicegreen(" and ") + span_boldnicegreen("soft") + span_nicegreen("!!")
+	description = span_nicegreen("Someone around me is so fat and soft!")
+	mood_change = 8
 	timeout = 3 MINUTES
 
 /datum/quirk/pleasant_softness/process(seconds_per_tick)
@@ -38,6 +39,6 @@
 			if(HAS_TRAIT(fat_freak, TRAIT_FAT_BAD))
 				continue
 
-			fat_freak.add_mood_event(TRAIT_PLEASANTLY_SOFT, /datum/mood_event/fat_affinity/fat_other)
+			fat_freak.add_mood_event(TRAIT_PLEASANTLY_SOFT, /datum/mood_event/fat_other)
 
 	TIMER_COOLDOWN_START(quirk_holder, PLEASANTLY_SOFT_COOLDOWN, 15 SECONDS)

@@ -380,7 +380,6 @@
 	else
 		H.remove_movespeed_modifier(/datum/movespeed_modifier/fatness)
 
-
 	if(HAS_TRAIT(H, TRAIT_BLOB))
 		handle_fatness_trait(
 			TRAIT_BLOB,

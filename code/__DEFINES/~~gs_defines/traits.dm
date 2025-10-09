@@ -31,7 +31,9 @@
 
 //GS13 quirks
 #define TRAIT_FAT_GOOD			"fat_good"
+#define TRAIT_FAT_GOOD_SELF		"fat_good_self"
 #define TRAIT_FAT_BAD			"fat_bad"
+#define TRAIT_FAT_BAD_SELF		"fat_bad_self"
 #define TRAIT_LIPOLICIDE_TOLERANCE "lipolicide_tolerance"
 #define TRAIT_WEAKLEGS			"weak_legs"
 #define TRAIT_STRONGLEGS		"strong_legs"

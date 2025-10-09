@@ -1,26 +1,27 @@
 /datum/quirk/fat_affinity
 	name = "Fat affinity"
 	desc = "You like fat people, alot, maybe even a little bit too much. You are happier when fat, and having fat people around you will make you even happier!"
-	icon = "fa-sort-up"
+	icon = "fa-heart"
 	value = 1
-	quirk_flags = QUIRK_HIDE_FROM_SCAN | QUIRK_PROCESSES
+	quirk_flags = QUIRK_HIDE_FROM_SCAN | QUIRK_PROCESSES | QUIRK_MOODLET_BASED
 	erp_quirk = FALSE // Disables on ERP config.
+	mob_trait = TRAIT_FAT_GOOD
 	var/mob/living/carbon/last_fatty
 	var/highest_recorded_weight = 0
 
-/datum/mood_event/fat_affinity/fat_self
+/datum/mood_event/fat_self
 	description = span_nicegreen("I'm so fat!")
-	mood_change = 1
+	mood_change = 4
 	timeout = 3 MINUTES
 
-/datum/mood_event/fat_affinity/fat_other
+/datum/mood_event/fat_other
 	description = span_nicegreen("Someone around me is fat!")
-	mood_change = 1
+	mood_change = 4
 	timeout = 3 MINUTES
 
-/datum/mood_event/fat_affinity/very_fat_other
+/datum/mood_event/very_fat_other
 	description = span_nicegreen("Someone around me is ") + span_boldnicegreen("so") + span_nicegreen(" fat!")
-	mood_change = 2
+	mood_change = 6
 	timeout = 3 MINUTES
 
 // COPY PASTING THE WELL TRAINED QUIRK LETS GOOOOOOOOOOOOOOOOOOOOOOOO
@@ -36,7 +37,7 @@
 	var/mob/living/carbon/fatty_holder = quirk_holder
 
 	if(iscarbon(quirk_holder) && fatty_holder.fatness > FATNESS_LEVEL_FATTER)
-		quirk_holder.add_mood_event(TRAIT_FAT_GOOD, /datum/mood_event/fat_affinity/fat_self)
+		quirk_holder.add_mood_event(TRAIT_FAT_GOOD_SELF, /datum/mood_event/fat_self)
 
 	. = FALSE
 	// handles calculating nearby fatties
@@ -75,14 +76,13 @@
 	)
 
 	if (last_fatty.fatness >= FATNESS_LEVEL_EXTREMELY_OBESE)
-		fatty_holder.add_mood_event(TRAIT_FAT_GOOD, /datum/mood_event/fat_affinity/very_fat_other)
-		fatty_holder.clear_mood_event(TRAIT_FAT_GOOD, /datum/mood_event/fat_affinity/fat_other)
+		quirk_holder.add_mood_event(TRAIT_FAT_GOOD, /datum/mood_event/very_fat_other)
 	else
-		fatty_holder.add_mood_event(TRAIT_FAT_GOOD, /datum/mood_event/fat_affinity/fat_other)
+		quirk_holder.add_mood_event(TRAIT_FAT_GOOD, /datum/mood_event/fat_other)
 
-	to_chat(fatty_holder, span_purple(pick(notices)))
+	to_chat(quirk_holder, span_purple(pick(notices)))
 	TIMER_COOLDOWN_START(quirk_holder, FAT_AFFINITY_COOLDOWN, 15 SECONDS)
-	if (TIMER_COOLDOWN_FINISHED(fatty_holder, SAME_FATTY_COOLDOWN))
+	if (TIMER_COOLDOWN_FINISHED(quirk_holder, SAME_FATTY_COOLDOWN))
 		S_TIMER_COOLDOWN_START(quirk_holder, SAME_FATTY_COOLDOWN, 1 MINUTES)
 	else
 		S_TIMER_COOLDOWN_RESET(quirk_holder, SAME_FATTY_COOLDOWN)

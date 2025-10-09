@@ -18,7 +18,7 @@
 	value = 2
 	// gain_text = span_notice("You feel your legs tremble under your weight")
 	// lose_text = span_notice("Your legs seem to have gotten stronger")
-	quirk_flags = QUIRK_HIDE_FROM_SCAN | QUIRK_PROCESSES
+	quirk_flags = QUIRK_HUMAN_ONLY | QUIRK_HIDE_FROM_SCAN | QUIRK_PROCESSES
 	erp_quirk = FALSE
 	// mob_trait = TRAIT_HELPLESS_IMMOBILITY
 	var/heat_resistance = 0
@@ -26,19 +26,22 @@
 
 /datum/quirk/fat_temperature_resistance/process(seconds_per_tick)
 	// make sure it has fatness
-	if (!iscarbon(quirk_holder))
-		return
+	// if (!iscarbon(quirk_holder))
+	// 	return
 
-	var/mob/living/carbon/fatty = quirk_holder
+	var/mob/living/carbon/human/fatty = quirk_holder
 
 	// remove old resistances
 	fatty.dna.species.bodytemp_heat_damage_limit -= heat_resistance
 	fatty.dna.species.bodytemp_cold_damage_limit += cold_resistance
 
 	// calc new ones
-	var/temperature_resistance = 20 * (fatty.fatness - FATNESS_LEVEL_VERYFAT) / FATNESS_LEVEL_IMMOBILE
-	heat_resistance = clamp(temperature_resistance / 2, 0, 10)
+	var/temperature_resistance = 20 * (fatty.fatness - FATNESS_LEVEL_VERYFAT) / FATNESS_LEVEL_EXTREMELY_OBESE
+	heat_resistance = clamp(temperature_resistance, 0, 20)
 	cold_resistance = clamp(temperature_resistance, 0, 20)
+
+	if (temperature_resistance >= 20)
+		ADD_TRAIT(fatty, TRAIT_RESISTCOLD, TRAIT_FAT_TEMPERATURE)
 
 	// apply new ones
 	fatty.dna.species.bodytemp_heat_damage_limit += heat_resistance
@@ -83,7 +86,7 @@
 /datum/quirk/strong_legs
 	name = "Strong legs"
 	desc = "Your legs are used to carrying heavy loads. Being fat slows you down less. You can still become immobile, though."
-	icon = "fa-weight-hanging"
+	icon = "fa-bone"
 	medical_record_text = "Patients legs can carry heavy weights well."
 	value = 1
 	gain_text = span_notice("Your legs seem to have gotten stronger")
@@ -95,7 +98,7 @@
 /datum/quirk/nutriment_immune_system
 	name = "Surplus nutrients"
 	desc = "Having this much excess calories gives your immune system quite the beefy defense budget! You are less likely to contract diseases and infections depending on weight."
-	icon = "fa-weight-hanging"
+	icon = "fa-virus"
 	medical_record_text = "Patients immune system benefits greatly from having excess calories available."
 	value = 3
 	quirk_flags = QUIRK_HIDE_FROM_SCAN | QUIRK_PROCESSES
@@ -111,10 +114,10 @@
 
 	// check their weight and apply virus resistance if they're fat
 	if (fatty.fatness >= FATNESS_LEVEL_FATTER)
-		ADD_TRAIT(fatty, TRAIT_VIRUS_RESISTANCE, TRAIT_SURPLUS_NUTRIENTS)
+		ADD_TRAIT(quirk_holder, TRAIT_VIRUS_RESISTANCE, TRAIT_SURPLUS_NUTRIENTS)
 		return
 	// if we're here it means we haven't returned, meaning we aren't fat enough. Go eat more.
-	REMOVE_TRAIT(fatty, TRAIT_VIRUS_RESISTANCE, TRAIT_SURPLUS_NUTRIENTS)
+	REMOVE_TRAIT(quirk_holder, TRAIT_VIRUS_RESISTANCE, TRAIT_SURPLUS_NUTRIENTS)
 
 /datum/quirk/fat_health
 	name = "Naturally padded"
@@ -123,15 +126,15 @@
 	value = 5
 	gain_text = span_notice("You feel like a tank!")
 	lose_text = span_notice("Your no longer feel like a 60 ton armored behemoth.")
-	quirk_flags = QUIRK_HIDE_FROM_SCAN | QUIRK_PROCESSES
+	quirk_flags = QUIRK_HUMAN_ONLY | QUIRK_HIDE_FROM_SCAN | QUIRK_PROCESSES
 	erp_quirk = FALSE
 	mob_trait = TRAIT_NATURALLY_PADDED
 	var/damage_resistance = 1
 
 /datum/quirk/fat_health/process(seconds_per_tick)
 	// make sure it's a human
-	if(!ishuman(quirk_holder))
-		return
+	// if(!ishuman(quirk_holder))
+	// 	return
 	
 	var/mob/living/carbon/human/fatty = quirk_holder
 
