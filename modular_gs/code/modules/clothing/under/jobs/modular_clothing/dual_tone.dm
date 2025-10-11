@@ -5,6 +5,7 @@
 	desc = "Dual tone, high visibility orange jumpsuit worn by engineers. It has minor radiation shielding."
 	greyscale_colors = "#FFDD00#FF7F00"
 	armor_type = /datum/armor/clothing_under/rank_engineering
+	flags_1 = 0		// make it non-recolorable
 
 /obj/item/clothing/under/color/dual_tone/engineering/chief
 	name = "Chief Engineers dual tone jumpsuit (Modular)"
@@ -29,6 +30,7 @@
 	desc = "Dual tone, white-blue uniform worn by medical personnel. Provides minor protection against biohazards."
 	greyscale_colors = "#FFFFFF#5A96BB"
 	armor_type = /datum/armor/clothing_under/rank_medical
+	flags_1 = 0		// make it non-recolorable
 
 /obj/item/clothing/under/color/dual_tone/medbay/chief_medical_officer
 	name = "Chief Medical Officers dual tone jumpsuit (Modular)"
@@ -69,6 +71,7 @@
 	desc = "Dual tone, white-purple labcoat worn by the stations eggheads. Has shielding providing minor protection against explosions."
 	greyscale_colors = "#FFFFFF#AA24EA"
 	armor_type = /datum/armor/clothing_under/science
+	flags_1 = 0		// make it non-recolorable
 
 /obj/item/clothing/under/color/dual_tone/science/research_director
 	name = "Research Director dual tone jumpsuit (Modular)"
@@ -87,6 +90,7 @@
 	name = "Cargo technicians dual tone jumpsuit (Modular)"
 	desc = "Dual tone, yellow-gray jumpsuit worn by cargo techs. Comfy and with big pockets!"
 	greyscale_colors = "#D6B328#C0C0C0"
+	flags_1 = 0		// make it non-recolorable
 
 /obj/item/clothing/under/color/dual_tone/cargo/quartermaster
 	name = "Quartermasters dual tone jumpsuit (Modular)"
@@ -114,6 +118,7 @@
 	sensor_mode = SENSOR_COORDS
 	random_sensor = FALSE
 	armor_type = /datum/armor/clothing_under/rank_security
+	flags_1 = 0		// make it non-recolorable
 
 /obj/item/clothing/under/color/dual_tone/security/medic
 	name = "Security medic dual tone jumpsuit (Modular)"
@@ -151,7 +156,7 @@
 	name = "science guard dual tone jumpsuit (Modular)"
 	desc = "Dual tone, purple white jumpsuit worn by the scientists guard."
 	greyscale_colors = "#dddddd#390039"
-	
+
 /obj/item/clothing/under/color/dual_tone/security/cargo
 	name = "Customs agent dual tone jumpsuit (Modular)"
 	desc = "Dual tone, brown black jumpsuit worn by the cargo guard."
@@ -163,6 +168,11 @@
 	greyscale_colors = "#171717#4c99ff"
 
 // ### SERVICE ###
+
+/obj/item/clothing/under/color/dual_tone/service
+	name = "Service dual tone jumpsuit (Modular)"
+	desc = "You shouldn't be seeing this!"
+	flags_1 = 0		// make it's children non-recolorable
 
 /obj/item/clothing/under/color/dual_tone/service/head_of_personnel
 	name = "Head of Personnel dual tone jumpsuit (Modular)"
@@ -208,9 +218,14 @@
 /obj/item/clothing/under/color/dual_tone/service/barber
 	name = "Barbers dual tone jumpsuit (Modular)"
 	desc = "Fancy looking, dual tone pink and white jumpsuit."
-	greyscale_colors = "#ff74ff#fdfdfd"
+	greyscale_colors = "#ff99d1#eeeeee"
 
 // ### SPECIAL ###
+
+/obj/item/clothing/under/color/dual_tone/command
+	name = "Command dual tone jumpsuit (Modular)"
+	desc = "You shouldn't be seeing this!"
+	flags_1 = 0		// make it's children non-recolorable
 
 /obj/item/clothing/under/color/dual_tone/command/captain
 	name = "Captains dual tone jumpsuit (Modular)"
@@ -236,8 +251,10 @@
 	has_sensor = LOCKED_SENSORS
 	sensor_mode = SENSOR_COORDS
 	random_sensor = FALSE
+	flags_1 = 0		// make it non-recolorable
 
 /obj/item/clothing/under/color/dual_tone/centcom
 	name = "CentComs Officer dual tone jumpsuit (Modular)"
 	desc = "Dual tone, black jumpsuit with deep purple stripes. Worn by representatives of GATO corporation."
 	greyscale_colors = "#1a1a20#ee2cb4"
+	flags_1 = 0		// make it non-recolorable

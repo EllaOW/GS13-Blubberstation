@@ -222,6 +222,7 @@
 	modular_icon_location = 'modular_gs/icons/mob/modclothes/modular_grey.dmi'	//Location of the sprites, to make it modular
 	desc = "A tasteful grey jumpsuit that reminds you of the good old days."
 	supports_variations_flags = CLOTHING_DIGITIGRADE_MASK
+	armor_type = /datum/armor/clothing_under
 	// worn_icon_digi = 'modular_skyrat/master_files/icons/mob/clothing/under/color_digi.dmi'
 
 //Overload of the alt belly sprites function, for adjusteable clothing
@@ -233,42 +234,49 @@
 	name = "service grey jumpsuit (Modular)"
 	desc = "Grey only in name"
 	greyscale_colors = "#6AD427"
+	flags_1 = 0		// make it non-recolorable
 
 /obj/item/clothing/under/color/grey/medical
 	name = "medical grey jumpsuit (Modular)"
 	desc = "Grey only in name"
 	greyscale_colors = "#5A96BB"
 	armor_type = /datum/armor/clothing_under/rank_medical
+	flags_1 = 0		// make it non-recolorable
 
 /obj/item/clothing/under/color/grey/cargo
 	name = "cargo grey jumpsuit (Modular)"
 	desc = "Grey only in name"
 	greyscale_colors = "#BB9042"
 	armor_type = /datum/armor/clothing_under/cargo_miner
+	flags_1 = 0		// make it non-recolorable
 
 /obj/item/clothing/under/color/grey/engi
 	name = "engineering grey jumpsuit (Modular)"
 	desc = "Grey only in name"
 	greyscale_colors = "#FF8800"
 	armor_type = /datum/armor/clothing_under/rank_engineering
+	flags_1 = 0		// make it non-recolorable
 
 /obj/item/clothing/under/color/grey/science
 	name = "science grey jumpsuit (Modular)"
 	desc = "Grey only in name"
 	greyscale_colors = "#9900FF"
 	armor_type = /datum/armor/clothing_under/science
+	flags_1 = 0		// make it non-recolorable
 
 /obj/item/clothing/under/color/grey/security
 	name = "security grey jumpsuit (Modular)"
 	desc = "Grey only in name"
 	greyscale_colors = "#3f6e9e"
 	armor_type = /datum/armor/clothing_under/rank_security
+	flags_1 = 0		// make it non-recolorable
 
 /obj/item/clothing/under/color/grey/command
 	name = "command grey jumpsuit (Modular)"
 	desc = "Grey only in name"
 	greyscale_colors = "#004B8F"
 	armor_type = /datum/armor/clothing_under/rank_captain
+	flags_1 = 0		// make it non-recolorable
 
 /obj/item/clothing/under/color/dual_tone
 	name = "White dual tone jumpsuit"
@@ -282,12 +290,14 @@
 	icon_state = "dual_tone_suit"
 	worn_icon_state = "dual_tone_suit"
 	worn_icon_digi = 'modular_gs/icons/mob/modclothes/dual_tone_suit_digi.dmi'
+	worn_icon_taur_snake = 'modular_gs/icons/mob/modclothes/dual_tone_suit_taur_snake.dmi'
 	post_init_icon_state = "dual_tone_suit"		// but why does it have to be this way
 
 	armor_type = /datum/armor/clothing_under
 	greyscale_config = /datum/greyscale_config/dual_tone_suit
 	greyscale_config_worn = /datum/greyscale_config/dual_tone_suit/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/dual_tone_suit/worn/digi
+	greyscale_config_worn_taur_snake = /datum/greyscale_config/dual_tone_suit/worn/taur/snake
 
 /datum/greyscale_config/dual_tone_suit
 	name = "Dual Tone Suit"
@@ -301,6 +311,10 @@
 /datum/greyscale_config/dual_tone_suit/worn/digi
 	name = "Dual Tone Suit (Worn)(Digi)"
 	icon_file = 'modular_gs/icons/mob/modclothes/dual_tone_suit_digi.dmi'
+
+/datum/greyscale_config/dual_tone_suit/worn/taur/snake
+	name = "Dual Tone Suit (Worn)(Taur)(Snake)"
+	icon_file = 'modular_gs/icons/mob/modclothes/dual_tone_suit_taur_snake.dmi'
 
 /obj/item/clothing/under/color/dual_tone/add_modular_overlay(mob/living/carbon/U, modular_icon, modular_layer, sprite_color)
 	var/list/suit_colors = SSgreyscale.ParseColorString(greyscale_colors)
