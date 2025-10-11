@@ -120,3 +120,16 @@
 	gs_products = list(
 		/obj/item/clothing/under/color/dual_tone/centcom = 3,
 	)
+
+/obj/machinery/vending/access/command
+	gs_products = list(
+		/obj/item/clothing/under/color/grey/command = 10,
+		/obj/item/clothing/under/color/dual_tone/engineering/chief = 1,
+		/obj/item/clothing/under/color/dual_tone/medbay/chief_medical_officer = 1,
+		/obj/item/clothing/under/color/dual_tone/science/research_director = 1,
+		/obj/item/clothing/under/color/dual_tone/cargo/quartermaster = 1,
+		/obj/item/clothing/under/color/dual_tone/security/head_of_security = 1,
+		/obj/item/clothing/under/color/dual_tone/service/head_of_personnel = 1,
+		/obj/item/clothing/under/color/dual_tone/command/captain = 1,
+		/obj/item/clothing/under/color/dual_tone/command/blueshield = 1,
+	)

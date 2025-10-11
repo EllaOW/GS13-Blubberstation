@@ -43,5 +43,3 @@
 /datum/loadout_item/uniform/jumpsuit/gs13/white_dual_tone
 	name = "White dual tone jumpsuit (Modular)"
 	item_path = /obj/item/clothing/under/color/dual_tone
-
-

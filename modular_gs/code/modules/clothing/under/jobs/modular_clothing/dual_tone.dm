@@ -10,7 +10,7 @@
 /obj/item/clothing/under/color/dual_tone/engineering/chief
 	name = "Chief Engineers dual tone jumpsuit (Modular)"
 	desc = "Dual tone, gray jumpsuit given to those engineers insane enough to achieve the rank of \"Chief Engineer\". It has minor radiation shielding."
-	greyscale_colors = "#949494#FFCC33"
+	greyscale_colors = "#dfdfdf#FFCC33"
 	armor_type = /datum/armor/clothing_under/engineering_chief_engineer
 
 /obj/item/clothing/under/color/dual_tone/engineering/atmos
