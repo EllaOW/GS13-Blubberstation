@@ -1,7 +1,4 @@
 /datum/loadout_item/uniform/jumpsuit/gs13
-
-
-/datum/loadout_item/uniform/jumpsuit/gs13
 	name = "Grey Jumpsuit (Modular)"
 	item_path = /obj/item/clothing/under/color/grey
 
