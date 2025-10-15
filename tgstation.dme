@@ -6949,6 +6949,7 @@
 #include "modular_gs\code\modules\vending\gatocola.dm"
 #include "modular_gs\code\modules\vending\mealdor.dm"
 #include "modular_gs\code\modules\vore\vore_wg.dm"
+#include "modular_gs\code\modules\voting\vote.dm"
 #include "modular_gs\code\obj\items\bluespace_belt.dm"
 #include "modular_gs\code\obj\items\floor_tiles.dm"
 #include "modular_gs\code\obj\items\gato.dm"
