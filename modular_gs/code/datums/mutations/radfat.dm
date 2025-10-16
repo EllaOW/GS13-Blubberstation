@@ -24,12 +24,12 @@
 /datum/mutation/human/radfat/on_acquiring(mob/living/carbon/human/owner)
 	if(..())
 		return
-	ADD_TRAIT(owner, TRAIT_RADRESONANCE, src)
+	ADD_TRAIT(owner, TRAIT_RADRESONANCE, REF(src))
 
 /datum/mutation/human/radfat/on_losing(mob/living/carbon/human/owner)
 	if(..())
 		return
-	REMOVE_TRAIT(owner, TRAIT_RADRESONANCE, src)
+	REMOVE_TRAIT(owner, TRAIT_RADRESONANCE, REF(src))
 
 /obj/item/dnainjector/antiradfat
 	name = "\improper DNA injector (Anti-Radiotrophic Metabolism)"
