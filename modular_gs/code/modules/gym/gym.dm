@@ -65,7 +65,7 @@
 	return FALSE
 
 /obj/machinery/treadmill/RefreshParts(obj/item/O, mob/user, params)
-	for(var/obj/item/stock_parts/manipulator/M in component_parts)
+	for(var/datum/stock_part/servo/M in component_parts)
 		fatloss += M.rating * -10
 
 /obj/machinery/treadmill/attackby(obj/item/O, mob/living/user, params)
@@ -83,7 +83,7 @@
 /obj/item/circuitboard/machine/treadmill
 	name = "Treadmill (Machine Board)"
 	build_path = /obj/machinery/treadmill
-	req_components = list(/obj/item/stock_parts/manipulator = 1)
+	req_components = list(/obj/item/stock_parts/servo = 1)
 
 /datum/design/treadmill
 	name = "Treadmill Board"

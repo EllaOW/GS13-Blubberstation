@@ -60,7 +60,7 @@
 /obj/structure/disposaloutlet/industrial_feeding_tube/CheckParts(list/parts_list)
 	..()
 	pump_limit = 0
-	for(var/obj/item/stock_parts/matter_bin/mb in contents)
+	for(var/datum/stock_part/matter_bin/mb in contents)
 		if(mb in pump_stuff) //stuff we're going to pump are not being used to build us.
 			continue
 		pump_limit += mb.rating * 2.5 // ~20 items per pump with 2 bluespace bins
