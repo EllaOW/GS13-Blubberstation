@@ -34,7 +34,7 @@
 		to_chat(U, "<span class='warning'>The belt is opened, letting your mass flow out!</span>")
 	U.hider_remove(src)
 
-/obj/item/bluespace_belt/proc/fat_hide(var/mob/living/carbon/user)
+/obj/item/bluespace_belt/proc/fat_hide(mob/living/carbon/user)
 	return -(user.fatness_real - 1)
 
 /obj/item/bluespace_belt/primitive
@@ -105,7 +105,7 @@
 	STOP_PROCESSING(SSprocessing, src)
 	icon_state = "primitive_belt_off"
 
-/obj/item/bluespace_belt/primitive/fat_hide(var/mob/living/carbon/user)
+/obj/item/bluespace_belt/primitive/fat_hide(mob/living/carbon/user)
 	var/weight_to_hide = 0
 	// if (user?.client?.prefs.helplessness_belts)
 	// 	var/belts_pref = user?.client?.prefs.helplessness_belts

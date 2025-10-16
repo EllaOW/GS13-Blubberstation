@@ -71,7 +71,7 @@
 	reduction_min = 6
 	reduction_max = 12
 
-/datum/emote/living/burp/fart/brap/select_message_type(var/mob/living/user)
+/datum/emote/living/burp/fart/brap/select_message_type(mob/living/user)
 	return pick("farts loudly!", "cuts a fat one!", "rips absolute ass!")
 
 /datum/emote/living/burp/fart/goon // Fart but it's funny !

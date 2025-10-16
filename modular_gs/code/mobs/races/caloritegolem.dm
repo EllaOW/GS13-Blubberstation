@@ -71,7 +71,7 @@ var/charges = 3
 
 
 /datum/action/innate/recharge/Activate()
-	charges = 3
+	var/charges = 3
 	if(ishuman(owner))
 		to_chat(owner, "<span class='notice'>You recharge yourself with magical energy!</span>")
 

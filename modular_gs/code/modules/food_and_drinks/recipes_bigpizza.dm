@@ -65,7 +65,7 @@
 	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1, "delight" = 5)
 	foodtype = GRAIN | VEGETABLES | DAIRY | JUNKFOOD
 
-/obj/item/food/pizza/framewrecker/attackby(var/obj/item/W, var/mob/living/user)
+/obj/item/food/pizza/framewrecker/attackby(obj/item/W, mob/living/user)
 	if(istype(W,/obj/item/kitchen/knife))
 		user.visible_message("<b>\The [user]</b> starts to slowly cut through The One Pizza.", "<span class='notice'>You start to slowly cut through The One Pizza.</span>")
 		if(!src)

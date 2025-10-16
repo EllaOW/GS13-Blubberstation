@@ -17,7 +17,7 @@
 		C.hider_remove(src)
 
 
-/datum/quirk/fatrousal/proc/fat_hide(var/mob/living/carbon/human/user)
+/datum/quirk/fatrousal/proc/fat_hide(mob/living/carbon/human/user)
 	var/mob/living/carbon/human/aroused_human = quirk_holder
 	if(!istype(aroused_human))
 		return FALSE

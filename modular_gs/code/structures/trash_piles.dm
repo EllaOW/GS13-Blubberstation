@@ -82,7 +82,7 @@
 		return
 	. = ..()
 
-/obj/structure/trash_pile/proc/eject_mob(var/mob/living/M)
+/obj/structure/trash_pile/proc/eject_mob(mob/living/M)
 	M.forceMove(src.loc)
 	to_chat(M,"<span class='warning'>You've been found!</span>")
 	playsound(M.loc, 'sound/machines/chime.ogg', 50, FALSE, -5)
