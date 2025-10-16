@@ -663,7 +663,7 @@
 		<p style= "text-align:left;font-family:Fauna One;font-size: 90%">5. You are required to act as an impartial judge whenever a court case arises.<p>
 		<p style= "text-align:left;font-family:Fauna One;font-size: 90%">6. You are expected to teach new and existing service personnel as needed or requested.<p>
 		<p style= "text-align:left;font-family:Fauna One;font-size: 90%">7. You must protect Ian from theft, injury, and defamation.<p>
-    	</body></html>"}
+		</body></html>"}
 
 /obj/item/book/manual/supply_SOP
 	name = "GATO Delivery Service Operating Procedure"
@@ -694,7 +694,7 @@
 		<p style= "text-align:left;font-family:Dhurjati;font-size: 130%;margin: 0px 50px">a. As a member of command, you are not permitted to leave the station except for extreme circumstances, and hence you are not able to fulfill the duties of a Shaft Miner. You are, however, still expected to be familiar with Shaft Miner SOP.<p>
 		<p style= "text-align:left;font-family:Dhurjati;font-size: 130%">3. In the absence of a Shaft Miner, you may request and recruit assistance from other members of the crew regardless of department.<p>
 		<p style= "text-align:left;font-family:Dhurjati;font-size: 130%; margin: 0px 50px">a. Ideally, those recruited to assist in material acquisition in the absence of a shaft miner should source their ores from the Xenoarchaeology area to avoid the hazards of lavaland proper.<p>
-    	</body></html>"}
+		</body></html>"}
 
 /obj/item/book/manual/engi_SOP
 	name = "GATO Corps of Engineers OSHA Handbook"
@@ -732,7 +732,7 @@
 		<p style= "text-align:left;font-family:Quantico;">4. You are expected to have broad knowledge of <b>every role listed above</b> and to be able to fulfill SOP for each one as needed.<p>
 		<p style= "text-align:left;font-family:Quantico;">5. You are expected to teach new and existing engineering personnel as needed and requested.<p>
 		<p style= "text-align:left;font-family:Quantico;">6. Refer to <b>Command SOP</b> for a broader list of duties as a member of command.<p>
-        </body>
+		</body>
 		</html>"}
 
 /obj/item/book/manual/med_SOP
@@ -780,7 +780,7 @@
 		<p style= "text-align:left;font-family:Roboto Flex;font-size: 100%">3. You are expected to have broad knowledge of <b>every role listed above</b> and to be able to fulfill SOP for each one as needed.<p>
 		<p style= "text-align:left;font-family:Roboto Flex;font-size: 100%">4. You are expected to teach new and existing medical personnel as needed and requested.<p>
 		<p style= "text-align:left;font-family:Roboto Flex;font-size: 100%">5. Refer to <b>Command SOP</b> for a broader list of duties as a member of command.<p>
-        </body></html>"}
+		</body></html>"}
 
 /obj/item/book/manual/sec_SOP
 	name = "GATO Security Force Code of Conduct"
@@ -878,7 +878,7 @@
 		<p style= "text-align:Center; color: darkslategrey;font-family:Michroma; font-size: 175%"><b>Code Epsilon</b><p>
 		<p style= "text-align:center;font-family:Genos;font-size: 120%;margin: 0px 50px"><em>Coming Soon</em><p>
 		<hr style="color: gray">
-        </body></html>"}
+		</body></html>"}
 
 /obj/item/book/manual/command_SOP
 	name = "The GATO Command Officer's Handbook"
@@ -911,7 +911,7 @@
 		<p style= "text-align:center; color: goldenrod;font-family:Castoro Titling; font-size: 200%">Succession<p>
 		<p style= "text-align:center;color: gainsboro;font-family:Nanum Myeongjo;font-size: 125%">In the event of an emergency situation where the Captain is unavailable, rendered unable to act, or deposed, the following line of succession should be followed:<p>
 		<p style= "text-align:center;color: gainsboro;font-family:Nanum Myeongjo;font-size: 125%;margin: 0px 50px">Captain > Head of Personnel > Research Director > Chief Medical Officer > Chief Engineer > Quartermaster > Head of Security<p>
-        </body>
+		</body>
 		</html>"}
 
 /obj/item/book/manual/prisoner_SOP
