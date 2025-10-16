@@ -15,7 +15,7 @@
 
 	var/busy = FALSE
 
-/obj/structure/trash_pile/Initialize()
+/obj/structure/trash_pile/Initialize(mapload)
 	. = ..()
 	icon_state = "pile[rand(1,11)]"
 
