@@ -14,7 +14,7 @@
 	var/t_He = p_They()
 	var/t_His = p_Their()
 	var/t_is = p_are()
-	
+
 	if(fatness >= FATNESS_LEVEL_BLOB)
 		return "[t_He] [t_is] completely engulfed in rolls upon rolls of flab. [t_His] head is poking out on top of [t_His] body, akin to a marble on top of a hill.\n"
 
@@ -38,5 +38,5 @@
 
 	if(fatness >= FATNESS_LEVEL_FATTER)
 		return "[t_He] [t_is] soft and curvy, [t_His] belly looking like a small pillow.\n"
-	
+
 	return
