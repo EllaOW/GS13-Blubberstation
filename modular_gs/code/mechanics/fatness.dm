@@ -45,16 +45,24 @@
 			return FALSE
 
 	var/amount_to_change = adjustment_amount
+	
+	var/local_gain_rate = weight_gain_rate
+	var/local_lose_rate = weight_loss_rate
+
+	if (HAS_TRAIT(src, TRAIT_UNIVERSAL_GAINER))
+		local_gain_rate = 0.2
+		local_lose_rate = 0.2
+
 	if(!ignore_rate)
 		if(adjustment_amount > 0)
-			amount_to_change = amount_to_change * weight_gain_rate
+			amount_to_change = amount_to_change * local_gain_rate
 		else
-			amount_to_change = amount_to_change * weight_loss_rate
+			amount_to_change = amount_to_change * local_lose_rate
 
 	fatness_real += amount_to_change
 	fatness_real = max(fatness_real, MINIMUM_FATNESS_LEVEL) //It would be a little silly if someone got negative fat.
 
-	if(max_weight) // GS13
+	if(max_weight && !HAS_TRAIT(src, TRAIT_UNIVERSAL_GAINER)) // GS13
 		fatness_real = min(fatness_real, (max_weight - 1))
 
 	fatness = fatness_real //Make their current fatness their real fatness
@@ -193,17 +201,27 @@
 	if(!HAS_TRAIT(src, TRAIT_UNIVERSAL_GAINER) && client?.prefs)
 		if(!check_weight_prefs(type_of_fattening))
 			return FALSE
-	var/amount_to_change = adjustment_amount
 
-	if(adjustment_amount > 0)
-		amount_to_change = amount_to_change * (weight_gain_rate * !ignore_rate)
-	else
-		amount_to_change = amount_to_change * (weight_loss_rate * !ignore_rate)
+	var/amount_to_change = adjustment_amount
+	
+	var/local_gain_rate = weight_gain_rate
+	var/local_lose_rate = weight_loss_rate
+
+	if (HAS_TRAIT(src, TRAIT_UNIVERSAL_GAINER))
+		local_gain_rate = 0.2
+		local_lose_rate = 0.2
+
+
+	if(!ignore_rate)
+		if(adjustment_amount > 0)
+			amount_to_change = amount_to_change * local_gain_rate
+		else
+			amount_to_change = amount_to_change * local_lose_rate
 
 	fatness_perma += amount_to_change
 	fatness_perma = max(fatness_perma, MINIMUM_FATNESS_LEVEL)
 
-	if(max_weight)
+	if(max_weight && !HAS_TRAIT(src, TRAIT_UNIVERSAL_GAINER))
 		fatness_perma = min(fatness_perma, (max_weight - 1))
 
 /mob/living/carbon/human/handle_breathing(times_fired)

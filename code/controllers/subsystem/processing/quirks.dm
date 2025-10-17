@@ -50,6 +50,10 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/unblinking, /datum/quirk/item_quirk/fluoride_stare),
 	list(/datum/quirk/micro, /datum/quirk/micro/smaller, /datum/quirk/micro/smallest, /datum/quirk/oversized),
 	//BUBBER EDIT ADDITION END
+	// GS13 EDIT
+	list(/datum/quirk/fat_aversion, /datum/quirk/fat_affinity),
+	list(/datum/quirk/weak_legs, /datum/quirk/strong_legs),
+	// GS13 END EDIT
 ))
 
 GLOBAL_LIST_INIT(quirk_string_blacklist, generate_quirk_string_blacklist())

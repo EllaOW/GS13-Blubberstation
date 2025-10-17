@@ -39,11 +39,20 @@
 //Effects
 /datum/reagent/fermi_fat/on_mob_life(mob/living/carbon/M)
 	if(!iscarbon(M))
-		return..()
+		return ..()
 	M.adjust_fatness(30, FATTENING_TYPE_CHEM)
 	M.adjust_perma(1, FATTENING_TYPE_CHEM)
 	..()
 	. = 1
+
+/datum/reagent/fermi_fat/on_mob_metabolize(mob/living/affected_mob)
+	. = ..()
+	if (HAS_TRAIT(affected_mob, TRAIT_NUTRICIOUS_BOOST))
+		affected_mob.add_movespeed_modifier(/datum/movespeed_modifier/nutricious_boost/galbanic)
+
+/datum/reagent/fermi_fat/on_mob_end_metabolize(mob/living/affected_mob)
+	. = ..()
+	affected_mob.remove_movespeed_modifier(/datum/movespeed_modifier/nutricious_boost/galbanic)
 
 //While overdosed
 /datum/reagent/fermi_fat/overdose_process(mob/living/M)
