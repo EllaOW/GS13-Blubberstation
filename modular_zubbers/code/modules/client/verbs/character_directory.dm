@@ -166,6 +166,8 @@ GLOBAL_DATUM(character_directory, /datum/character_directory)
 		data["personalGender"] = READ_PREFS(user, choiced/display_gender)
 		data["personalErpTag"] = READ_PREFS(user, choiced/erp_status)
 		data["personalVoreTag"] = READ_PREFS(user, choiced/erp_status_v)
+		data["personalFeedingTag"] = READ_PREFS(user, choiced/erp_status_feed) //GS13 EDIT
+		data["personalNonconFeedingTag"] = READ_PREFS(user, choiced/erp_status_feed_nc) //GS13 EDIT
 		data["personalHypnoTag"] = READ_PREFS(user, choiced/erp_status_hypno)
 		data["personalNonconTag"] = READ_PREFS(user, choiced/erp_status_nc)
 		data["prefsOnly"] = TRUE
@@ -191,6 +193,8 @@ GLOBAL_DATUM(character_directory, /datum/character_directory)
 		var/gender = "Nonbinary"
 		var/erp = "Ask"
 		var/vore = "Ask"
+		var/feeding = "Ask" //GS13 EDIt
+		var/feeding_nc = "Ask" //GS13 EDIt
 		var/hypno = "Ask"
 		var/noncon = "Ask"
 		var/character_ad = ""
@@ -231,6 +235,10 @@ GLOBAL_DATUM(character_directory, /datum/character_directory)
 		gender = READ_PREFS(mob, choiced/display_gender)
 		erp = READ_PREFS(mob, choiced/erp_status)
 		vore = READ_PREFS(mob, choiced/erp_status_v)
+		//GS13 EDIT START
+		feeding = READ_PREFS(mob, choiced/erp_status_feed)
+		feeding_nc = READ_PREFS(mob, choiced/erp_status_feed_nc)
+		//GS13 EDIT END
 		hypno = READ_PREFS(mob, choiced/erp_status_hypno)
 		noncon = READ_PREFS(mob, choiced/erp_status_nc)
 		character_ad = READ_PREFS(mob, text/character_ad)
@@ -245,6 +253,10 @@ GLOBAL_DATUM(character_directory, /datum/character_directory)
 			"gender" = gender,
 			"erp" = erp,
 			"vore" = vore,
+			// GS13 EDIT START
+			"feeding" = feeding,
+			"feeding_nc" = feeding_nc,
+			// GS13 EDIT END
 			"hypno" = hypno,
 			"noncon" = noncon,
 			"character_ad" = character_ad,
