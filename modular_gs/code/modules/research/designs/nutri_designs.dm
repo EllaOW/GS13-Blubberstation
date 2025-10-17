@@ -172,6 +172,6 @@
 	id = "borg_upgrade_foodgrip"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/feeding_arm
-	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 4, /datum/material/glass = 6000)
+	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 4, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 3)
 	construction_time = 100
 	category = list(RND_CATEGORY_MECHFAB_CYBORG_MODULES)
