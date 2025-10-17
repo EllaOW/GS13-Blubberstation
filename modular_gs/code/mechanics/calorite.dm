@@ -49,7 +49,6 @@
 	icon_state = "sheet-calorite"
 	inhand_icon_state = "sheet-calorite"
 	singular_name = "calorite sheet"
-	sheettype = "calorite"
 	novariants = TRUE
 	grind_results = list(/datum/reagent/consumable/lipoifier = 2)
 	// point_value = 40
