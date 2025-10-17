@@ -1,4 +1,4 @@
-/area/fatlab //GS13 - move this elsewhere later
+/area/fatlab
 	name = "Mysterious Facility"
 	icon_state = "centcom"
 	dynamic_lighting = DYNAMIC_LIGHTING_FORCED
@@ -64,7 +64,8 @@
 /area/xenoarch/nothinghere
 	name = "Nothing Here"
 	icon_state = "yellow"
-	ambientsounds = SPOOKY
+	// ambientsounds = SPOOKY
+	ambience_index = AMBIENCE_SPOOKY
 
 
 /area/lavaland/demone
