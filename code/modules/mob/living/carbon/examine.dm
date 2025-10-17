@@ -141,8 +141,10 @@
 
 	. += get_fullness_text()
 	. += get_weight_text()
+	if(user.can_see_bfi())
+		. += span_notice("[src] weighs [calculate_weight_in_pounds()] pounds (BFI: [fatness_real])")
 	// GS13 END EDIT
-	
+
 	switch(disgust)
 		if(DISGUST_LEVEL_GROSS to DISGUST_LEVEL_VERYGROSS)
 			. += "[t_He] look[p_s()] a bit grossed out."
