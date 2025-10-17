@@ -14,7 +14,7 @@
 	name = "Very Weak legs"
 	desc = "Your legs can't carry the heaviest of weights. At a certain BFI you will become unable to move. WARNING! PICKING THIS QUIRK WILL MAKE YOU IMMOBILE REGARDLESS OF YOUR IMMOBILITY PREFERENCE!"
 	icon = "fa-weight-scale"
-	medical_record_text = "Patients legs cannot carry heavy weights well."
+	medical_record_text = "Patients legs cannot carry heavy weights at all."
 	value = -8
 	gain_text = span_notice("You feel your legs tremble under your weight")
 	lose_text = span_notice("Your legs seem to have gotten stronger")
@@ -36,7 +36,7 @@
 
 /datum/quirk/helplessness/big_cheeks
 	name = "Big cheeks"
-	desc = "Your cheeks seem to bloat up exceptionally with weight, reducing your visibility. WARNING! PICKING THIS QUIRK WILL MAKE YOU NEARSIGHTED REGARDLESS OF YOUR NEARSIGHTEDNESS/HIDDEN FACE PREFERENCE!"
+	desc = "Your cheeks seem to bloat up exceptionally with weight, reducing your visibility. WARNING! PICKING THIS QUIRK WILL MAKE YOU NEARSIGHTED AND HIDE YOUR FACE REGARDLESS OF YOUR NEARSIGHTEDNESS/HIDDEN FACE PREFERENCE!"
 	icon = "fa-glasses"
 	medical_record_text = "Patients cheeks seem to accumulate significant amount of adipose, leading to worse eyesight at higher weights."
 	value = -5
@@ -73,8 +73,8 @@
 /datum/quirk/helplessness/clothing
 	name = "Tight clothes"
 	desc = "Your clothing never seems to fit you right. At higher weight, your clothing will burst. WARNING! PICKING THIS QUIRK WILL MAKE YOU BURST OUT OF CLOTHES REGARDLESS OF YOUR CLOTHES BURSTING PREFERENCE!"
-	icon = "fa-weight-hanging"
-	medical_record_text = "Patients legs cannot carry heavy weights well."
+	icon = "fa-shirt"
+	medical_record_text = "Patients size seems to make it easy for them to burst out of clothes."
 	value = -8
 	gain_text = span_notice("Your clothes creak quietly")
 	lose_text = span_notice("Your clothes feel more comfortable")
@@ -96,12 +96,12 @@
 
 /datum/quirk/helplessness/clothing_back
 	name = "Rolls-back"
-	desc = "Your back seems to accumulate a lot of adipose. At a certain BFI you will become unable to wear anything on your back. WARNING! PICKING THIS QUIRK WILL MAKE YOU IMMOBILE REGARDLESS OF YOUR IMMOBILITY PREFERENCE!"
+	desc = "Your back seems to accumulate a lot of adipose. At a certain BFI you will become unable to wear anything on your back. WARNING! PICKING THIS QUIRK WILL MAKE YOU UNABLE TO WEAR BACKPACKS REGARDLESS OF YOUR CLOTHING BACK PREFERENCE!"
 	icon = "fa-suitcase"
-	medical_record_text = "Patients legs cannot carry heavy weights well."
+	medical_record_text = "Patient back seems to accumulate excessive amounts of adipose."
 	value = -8
-	gain_text = span_notice("You feel your legs tremble under your weight")
-	lose_text = span_notice("Your legs seem to have gotten stronger")
+	gain_text = span_notice("Your backpack rests uncomfortably on your back")
+	lose_text = span_notice("Your backpack is no longer uncomfortable")
 	quirk_flags = 0
 	erp_quirk = FALSE		// this is a lie, however we do it because we want it always on
 	mob_trait = TRAIT_HELPLESS_BACKPACKS
@@ -110,10 +110,8 @@
 	name = "Seatbelts destroyer"
 	desc = "Your exceptional rotundness makes you unable to wear seatbelts. At higher weights you won't be able to be buckled to chairs. WARNING! PICKING THIS QUIRK WILL MAKE YOU UNABLE TO BUCKLE REGARDLESS OF YOUR NO BUCKLING PREFERENCE!"
 	icon = "fa-bag-shopping"
-	medical_record_text = "Patient back seems to accumulate excessive amounts of adipose."
+	medical_record_text = "Patient seems to struggle with buckling their seatbelts."
 	value = -1
-	gain_text = span_notice("Your backpack rests uncomfortably on your back")
-	lose_text = span_notice("Your backpack is no longer uncomfortable")
 	quirk_flags = 0
 	erp_quirk = FALSE		// this is a lie, however we do it because we want it always on
 	mob_trait = TRAIT_HELPLESS_NO_BUCKLE

@@ -47,6 +47,9 @@
 
 	var/chair_breakage = fatty.client.prefs.read_preference(/datum/preference/numeric/helplessness/chair_breakage)
 
+	if (HAS_TRAIT(fatty, TRAIT_HELPLESS_CHAIR_DESTROYER))
+		chair_breakage = FATNESS_LEVEL_BARELYMOBILE
+
 	if (chair_breakage == 0)
 		return
 	
