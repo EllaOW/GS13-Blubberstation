@@ -55,7 +55,7 @@
 		"refractive_nanites",
 		"shock_nanites",
 		"temperature_nanites",
-		"fat_convertor_nanites", //GS13 EDIT
+		"fat_converter_nanites", //GS13 EDIT
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_4_POINTS, TECHWEB_POINT_TYPE_NANITE = TECHWEB_TIER_2_POINTS)
 
