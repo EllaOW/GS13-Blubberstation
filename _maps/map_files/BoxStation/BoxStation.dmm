@@ -23161,6 +23161,7 @@
 /obj/machinery/airalarm/directional/west,
 /obj/item/clothing/under/plasmaman/paramedic,
 /obj/item/clothing/head/helmet/space/plasmaman/paramedic,
+/obj/item/defibrillator/loaded,
 /turf/open/floor/iron/dark,
 /area/station/medical/storage)
 "bBL" = (
@@ -38384,8 +38385,11 @@
 /obj/structure/table/optable,
 /obj/structure/cable,
 /obj/machinery/light/directional/north,
-/obj/machinery/defibrillator_mount/directional/north,
 /obj/effect/turf_decal/tile/blue/full,
+/obj/machinery/defibrillator_mount/loaded{
+	pixel_x = 0;
+	pixel_y = 27
+	},
 /turf/open/floor/iron/large,
 /area/station/medical/surgery/fore)
 "diU" = (
@@ -58964,9 +58968,9 @@
 /turf/open/floor/iron/smooth_large,
 /area/station/engineering/main)
 "mCo" = (
-/obj/item/clothing/neck/stethoscope,
 /obj/effect/turf_decal/tile/blue/full,
 /obj/structure/table/glass,
+/obj/item/defibrillator/loaded,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/treatment_center)
 "mCs" = (
@@ -70610,6 +70614,7 @@
 /obj/item/clothing/head/helmet/space/plasmaman/medical,
 /obj/machinery/light/directional/west,
 /obj/machinery/firealarm/directional/west,
+/obj/item/defibrillator/loaded,
 /turf/open/floor/iron/dark,
 /area/station/medical/storage)
 "rMl" = (
@@ -81736,8 +81741,11 @@
 /obj/structure/table/optable,
 /obj/structure/cable,
 /obj/machinery/light/directional/north,
-/obj/machinery/defibrillator_mount/directional/north,
 /obj/effect/turf_decal/tile/blue/full,
+/obj/machinery/defibrillator_mount/loaded{
+	pixel_x = 0;
+	pixel_y = 27
+	},
 /turf/open/floor/iron/large,
 /area/station/medical/surgery)
 "wKH" = (
