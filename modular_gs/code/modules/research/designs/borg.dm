@@ -11,4 +11,5 @@
 
 	storable = list(
 		/obj/item/reagent_containers,
+		/obj/item/food,
 	)
