@@ -45,13 +45,13 @@
 			return FALSE
 
 	var/amount_to_change = adjustment_amount
-	
+
 	var/local_gain_rate = weight_gain_rate
 	var/local_lose_rate = weight_loss_rate
 
 	if (HAS_TRAIT(src, TRAIT_UNIVERSAL_GAINER))
-		local_gain_rate = 0.2
-		local_lose_rate = 0.2
+		local_gain_rate = max(0.2,local_gain_rate)
+		local_lose_rate = min(0.2,local_lose_rate)
 
 	if(!ignore_rate)
 		if(adjustment_amount > 0)
@@ -203,7 +203,7 @@
 			return FALSE
 
 	var/amount_to_change = adjustment_amount
-	
+
 	var/local_gain_rate = weight_gain_rate
 	var/local_lose_rate = weight_loss_rate
 
@@ -295,7 +295,7 @@
 /mob/living/carbon/proc/applyPermaFatnessDamage(amount)
 	if (isnull(client))
 		return
-	
+
 	if (!client.prefs.read_preference(/datum/preference/toggle/weight_gain_permanent)) // If we cant apply permafat, apply regular fat
 		return applyFatnessDamage(amount)
 
