@@ -14,7 +14,7 @@
 	name = "MOD hydraulic movement assistance module (locked)"
 	removable = FALSE
 
-/obj/item/mod/module/hydraulic_movement/on_suit_activation()
+/obj/item/mod/module/hydraulic_movement/on_part_activation()
 	var/mob/living/carbon/human/wearer = mod.wearer
 	wearer.add_fat_delay_modifier(modifier_name, amount)
 
@@ -34,7 +34,7 @@
 	if(HAS_TRAIT_FROM(wearer, TRAIT_PARALYSIS_L_ARM, HELPLESSNESS_TRAIT))
 		REMOVE_TRAIT(wearer, TRAIT_PARALYSIS_L_ARM, HELPLESSNESS_TRAIT)
 		REMOVE_TRAIT(wearer, TRAIT_PARALYSIS_R_ARM, HELPLESSNESS_TRAIT)
-		wearer.update_disabled_bodyparts()
+		wearer.update_body_parts()
 //	if(HAS_TRAIT_FROM(wearer, TRAIT_NO_JUMPSUIT, HELPLESSNESS_TRAIT))
 //		REMOVE_TRAIT(wearer, TRAIT_NO_JUMPSUIT, HELPLESSNESS_TRAIT)
 	if(HAS_TRAIT_FROM(wearer, TRAIT_NO_MISC, HELPLESSNESS_TRAIT))
@@ -44,7 +44,7 @@
 //	if(HAS_TRAIT_FROM(wearer, TRAIT_NO_BUCKLE, HELPLESSNESS_TRAIT))
 //		REMOVE_TRAIT(wearer, TRAIT_NO_BUCKLE, HELPLESSNESS_TRAIT)
 
-/obj/item/mod/module/hydraulic_movement/on_suit_deactivation(deleting = FALSE)
+/obj/item/mod/module/hydraulic_movement/on_part_deactivation(deleting = FALSE)
 	if(deleting)
 		return
 	if(HAS_TRAIT_FROM(mod.wearer, TRAIT_NO_HELPLESSNESS, src))
@@ -90,7 +90,7 @@
 		var/adjusted_rate = rate * C.weight_loss_rate
 		if(C.fatness_real > 0 && (C.fatness_real - adjusted_rate) >= adjusted_rate)
 			C.adjust_fatness(-rate, FATTENING_TYPE_WEIGHT_LOSS)
-			mod.cell.give(rate)
+			mod.add_charge(rate)
 
 /datum/design/module/calovoltaic
 	name = "Calovoltaic Generator Module"
@@ -99,7 +99,7 @@
 	build_path = /obj/item/mod/module/calovoltaic
 	desc = "A GATO-designed module for burning excess fat to make power for your suit."
 
-/obj/item/mod/construction/armor/exoskeleton
+/obj/item/mod/construction/plating/exoskeleton
 	theme = /datum/mod_theme/exoskeleton
 
 /obj/item/mod/control/Initialize(mapload, new_theme, new_skin)
@@ -107,34 +107,47 @@
 	gs13_icon_update()
 
 /obj/item/mod/control/proc/gs13_icon_update()
+	var/list/parts = get_parts(all = TRUE)
 	if(theme.use_gs_icon == TRUE)
 		icon = 'modular_gs/icons/obj/clothing/modsuit/mod_clothing.dmi'
-		mob_overlay_icon = 'modular_gs/icons/mob/clothing/modsuit/mod_clothing.dmi'
+		worn_icon = 'modular_gs/icons/mob/clothing/modsuit/mod_clothing.dmi'
 		icon_state = "[theme]-control"
-		item_state = "[theme]-control"
+		inhand_icon_state = "[theme]-control"
+/*
+		parts["helmet"]?.icon = 'modular_gs/icons/obj/clothing/modsuit/mod_clothing.dmi'
+		parts["helmet"]?.worn_icon = 'modular_gs/icons/mob/clothing/modsuit/mod_clothing.dmi'
+		parts["helmet"]?.icon_state = "[theme]-helmet"
+		parts["helmet"]?.inhand_icon_state = "[theme]-helmet"
 
-		helmet.icon = 'modular_gs/icons/obj/clothing/modsuit/mod_clothing.dmi'
-		helmet.mob_overlay_icon = 'modular_gs/icons/mob/clothing/modsuit/mod_clothing.dmi'
-		helmet.icon_state = "[theme]-helmet"
-		helmet.item_state = "[theme]-helmet"
+		parts["chestplate"]?.icon = 'modular_gs/icons/obj/clothing/modsuit/mod_clothing.dmi'
+		parts["chestplate"]?.worn_icon = 'modular_gs/icons/mob/clothing/modsuit/mod_clothing.dmi'
+		parts["chestplate"]?.icon_state = "[theme]-chestplate"
+		parts["chestplate"]?.inhand_icon_state = "[theme]-chestplate"
 
-		chestplate.icon = 'modular_gs/icons/obj/clothing/modsuit/mod_clothing.dmi'
-		chestplate.mob_overlay_icon = 'modular_gs/icons/mob/clothing/modsuit/mod_clothing.dmi'
-		chestplate.icon_state = "[theme]-chestplate"
-		chestplate.item_state = "[theme]-chestplate"
+		parts["gauntlets"]?.icon = 'modular_gs/icons/obj/clothing/modsuit/mod_clothing.dmi'
+		parts["gauntlets"]?.worn_icon = 'modular_gs/icons/mob/clothing/modsuit/mod_clothing.dmi'
+		parts["gauntlets"]?.icon_state = "[theme]-gauntlets"
+		parts["gauntlets"]?.inhand_icon_state = "[theme]-gauntlets"
 
-		gauntlets.icon = 'modular_gs/icons/obj/clothing/modsuit/mod_clothing.dmi'
-		gauntlets.mob_overlay_icon = 'modular_gs/icons/mob/clothing/modsuit/mod_clothing.dmi'
-		gauntlets.icon_state = "[theme]-gauntlets"
-		gauntlets.item_state = "[theme]-gauntlets"
-
-		boots.icon = 'modular_gs/icons/obj/clothing/modsuit/mod_clothing.dmi'
-		boots.mob_overlay_icon = 'modular_gs/icons/mob/clothing/modsuit/mod_clothing.dmi'
-		boots.icon_state = "[theme]-boots"
-		boots.item_state = "[theme]-boots"
+		parts["boots"]?.icon = 'modular_gs/icons/obj/clothing/modsuit/mod_clothing.dmi'
+		parts["boots"]?.worn_icon = 'modular_gs/icons/mob/clothing/modsuit/mod_clothing.dmi'
+		parts["boots"]?.icon_state = "[theme]-boots"
+		parts["boots"]?.inhand_icon_state = "[theme]-boots"
+*/
 
 /datum/mod_theme
 	var/use_gs_icon = FALSE
+
+/datum/armor/exoskeleton
+	melee = 5
+	bullet = 5
+	laser = 5
+	energy = 5
+	bio = 5
+	fire = 5
+	acid = 5
+	wound = 5
+//list(MELEE = 5, BULLET = 5, LASER = 5, ENERGY = 5, BOMB = 5, BIO = 5, FIRE = 5, ACID = 5, WOUND = 5, RAD = 5)
 
 /datum/mod_theme/exoskeleton
 	use_gs_icon = TRUE
@@ -145,61 +158,78 @@
 		people whose weight proves restrictive and help them on their journey to lose it."
 	default_skin = "exoskeleton"
 	complexity_max = 5
-	armor = list(MELEE = 5, BULLET = 5, LASER = 5, ENERGY = 5, BOMB = 5, BIO = 5, FIRE = 5, ACID = 5, WOUND = 5, RAD = 5)
+	armor_type = /datum/armor/exoskeleton
 	resistance_flags = FIRE_PROOF
 	max_heat_protection_temperature = 1
 	min_cold_protection_temperature = -1
-	permeability_coefficient = 1
+	//permeability_coefficient = 1
 	siemens_coefficient = 1
-	slowdown_inactive = 0
-	slowdown_active = 0
+	slowdown_deployed = 0
+	//slowdown_inactive = 0
+	//slowdown_active = 0
 	inbuilt_modules = list(/obj/item/mod/module/hydraulic_movement, /obj/item/mod/module/calovoltaic, /obj/item/mod/module/storage)
-	allowed = list(/obj/item/flashlight, /obj/item/tank/internals)
-	skins = list(
+	allowed_suit_storage = list(/obj/item/flashlight, /obj/item/tank/internals)
+	variants = list(
 		"exoskeleton" = list(
-			HELMET_LAYER = NECK_LAYER,
-			HELMET_FLAGS = list(
+			/obj/item/clothing/head/mod = list(
+				UNSEALED_LAYER = NECK_LAYER,
 				UNSEALED_CLOTHING = NONE,
 				SEALED_CLOTHING = NONE,
 				UNSEALED_INVISIBILITY = NONE,
 				SEALED_INVISIBILITY = NONE,
 				SEALED_COVER = NONE,
+				UNSEALED_MESSAGE = HELMET_UNSEAL_MESSAGE,
+				SEALED_MESSAGE = HELMET_SEAL_MESSAGE,
 			),
-			CHESTPLATE_FLAGS = list(
+			/obj/item/clothing/suit/mod = list(
 				UNSEALED_CLOTHING = NONE,
 				SEALED_CLOTHING = NONE,
 				SEALED_INVISIBILITY = NONE,
+				UNSEALED_MESSAGE = CHESTPLATE_UNSEAL_MESSAGE,
+				SEALED_MESSAGE = CHESTPLATE_SEAL_MESSAGE,
 			),
-			GAUNTLETS_FLAGS = list(
+			/obj/item/clothing/gloves/mod = list(
 				UNSEALED_CLOTHING = NONE,
 				SEALED_CLOTHING = NONE,
+				UNSEALED_MESSAGE = GAUNTLET_UNSEAL_MESSAGE,
+				SEALED_MESSAGE = GAUNTLET_SEAL_MESSAGE,
 			),
-			BOOTS_FLAGS = list(
+			/obj/item/clothing/shoes/mod = list(
 				UNSEALED_CLOTHING = NONE,
 				SEALED_CLOTHING = NONE,
+				UNSEALED_MESSAGE = BOOT_UNSEAL_MESSAGE,
+				SEALED_MESSAGE = BOOT_SEAL_MESSAGE,
 			),
 		),
 		"invisible" = list(
-			HELMET_LAYER = NECK_LAYER,
-			HELMET_FLAGS = list(
+			/obj/item/clothing/head/mod = list(
+				UNSEALED_LAYER = NECK_LAYER,
 				UNSEALED_CLOTHING = NONE,
 				SEALED_CLOTHING = NONE,
 				UNSEALED_INVISIBILITY = NONE,
 				SEALED_INVISIBILITY = NONE,
 				SEALED_COVER = NONE,
+				UNSEALED_MESSAGE = HELMET_UNSEAL_MESSAGE,
+				SEALED_MESSAGE = HELMET_SEAL_MESSAGE,
 			),
-			CHESTPLATE_FLAGS = list(
+			/obj/item/clothing/suit/mod = list(
 				UNSEALED_CLOTHING = NONE,
 				SEALED_CLOTHING = NONE,
 				SEALED_INVISIBILITY = NONE,
+				UNSEALED_MESSAGE = CHESTPLATE_UNSEAL_MESSAGE,
+				SEALED_MESSAGE = CHESTPLATE_SEAL_MESSAGE,
 			),
-			GAUNTLETS_FLAGS = list(
+			/obj/item/clothing/gloves/mod = list(
 				UNSEALED_CLOTHING = NONE,
 				SEALED_CLOTHING = NONE,
+				UNSEALED_MESSAGE = GAUNTLET_UNSEAL_MESSAGE,
+				SEALED_MESSAGE = GAUNTLET_SEAL_MESSAGE,
 			),
-			BOOTS_FLAGS = list(
+			/obj/item/clothing/shoes/mod = list(
 				UNSEALED_CLOTHING = NONE,
 				SEALED_CLOTHING = NONE,
+				UNSEALED_MESSAGE = BOOT_UNSEAL_MESSAGE,
+				SEALED_MESSAGE = BOOT_SEAL_MESSAGE,
 			),
 		)
 	)
@@ -210,7 +240,8 @@
 /obj/item/mod/control/pre_equipped/exoskeleton
 	desc = "A pre-built GATO mobility exoskeleton, designed to support high weights, favor movement and weight loss."
 	theme = /datum/mod_theme/exoskeleton
-	cell = /obj/item/stock_parts/cell/upgraded/plus
+	core = /obj/item/mod/core/standard
+	//cell = /obj/item/stock_parts/cell/upgraded/plus
 
 /obj/item/mod/control/pre_equipped/exoskeleton/locked
 	name = "MOD control unit (locked)"
@@ -226,10 +257,12 @@
 	build_type = MECHFAB
 	construction_time = 10 SECONDS
 	category = list("MODsuit Chassis", "MODsuit Designs")
-	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE
+	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
+/*
 /datum/gear/hands/exoskeleton
 	name = "MOD exoskeleton"
 	category = LOADOUT_CATEGORY_HANDS
 	path = /obj/item/mod/control/pre_equipped/exoskeleton/locked
 	cost = 3
+*/
