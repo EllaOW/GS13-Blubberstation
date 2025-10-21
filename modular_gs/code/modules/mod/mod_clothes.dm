@@ -23,6 +23,7 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/u = user
 		u.hider_add(src)
+		
 /obj/item/clothing/suit/mod/dropped(mob/living/user)
 	. = ..()
 	if(ishuman(user))
