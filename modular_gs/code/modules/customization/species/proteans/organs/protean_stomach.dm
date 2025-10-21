@@ -17,3 +17,4 @@
 	..()
 	if(istype(edible, /obj/item/food/golem_food))
 		owner.adjust_fatness(10, FATTENING_TYPE_FOOD)
+		
