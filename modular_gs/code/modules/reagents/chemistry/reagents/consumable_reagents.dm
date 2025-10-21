@@ -7,6 +7,7 @@
 	taste_description = "lard"
 	color = "#e2e1b1"
 	metabolization_rate = 0.5 * REAGENTS_METABOLISM
+	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC | REAGENT_PROTEAN // Allow all kinds of humanoids to process the chem
 
 /datum/reagent/consumable/lipoifier/on_mob_life(mob/living/carbon/M)
 	M.adjust_fatness(15, FATTENING_TYPE_CHEM)
