@@ -1,7 +1,6 @@
 //	Protean MODsuit fatness hider
 
 /obj/item/clothing/suit/mod/proc/fat_hide(var/mob/living/carbon/human/receiver)
-
 	if(!ishuman(receiver) || !receiver.back || !istype(receiver.back, /obj/item/mod/control/pre_equipped/protean))
 		return FALSE
 
