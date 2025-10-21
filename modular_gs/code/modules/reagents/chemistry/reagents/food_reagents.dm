@@ -17,3 +17,4 @@
 // Allow synths and proteans to process lipolicide
 /datum/reagent/toxin/lipolicide
 	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC | REAGENT_PROTEAN
+	
