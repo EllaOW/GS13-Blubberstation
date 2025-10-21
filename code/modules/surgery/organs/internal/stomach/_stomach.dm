@@ -153,7 +153,7 @@
 
 	//GS13 Edit - No hunger see edit at the top of the proc
 	// nutrition decrease and satiety
-	if (human.nutrition > 0 && human.stat != DEAD && !HAS_TRAIT(human, TRAIT_NOHUNGER))
+	if (human.nutrition > 0 && human.stat != DEAD && !HAS_TRAIT(human, TRAIT_NOHUNGER)) //GS13 EDIT - ORIGINAL : if (human.nutrition > 0 && human.stat != DEAD)
 		// THEY HUNGER
 		var/hunger_rate = HUNGER_FACTOR
 		if(human.mob_mood && human.mob_mood.sanity > SANITY_DISTURBED)
