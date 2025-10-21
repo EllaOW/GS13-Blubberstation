@@ -7,3 +7,4 @@
 	greyscale_config = /datum/greyscale_config/canister/stripe
 	greyscale_colors = "#C3B9A5#ffffff"
 	gas_type = /datum/gas/lipoifium
+	
