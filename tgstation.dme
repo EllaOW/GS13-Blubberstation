@@ -6979,6 +6979,7 @@
 #include "modular_gs\code\modules\mob\living\species.dm"
 #include "modular_gs\code\modules\mob\living\carbon\examine.dm"
 #include "modular_gs\code\modules\mob\living\carbon\weight_gain.dm"
+#include "modular_gs\code\modules\mod\modules\modules_fat.dm"
 #include "modular_gs\code\modules\nifs\nifs.dm"
 #include "modular_gs\code\modules\nifs\nifsofts.dm"
 #include "modular_gs\code\modules\overwrites\research.dm"

@@ -102,41 +102,6 @@
 /obj/item/mod/construction/plating/exoskeleton
 	theme = /datum/mod_theme/exoskeleton
 
-/obj/item/mod/control/Initialize(mapload, new_theme, new_skin)
-	. = ..()
-	gs13_icon_update()
-
-/obj/item/mod/control/proc/gs13_icon_update()
-	var/list/parts = get_parts(all = TRUE)
-	if(theme.use_gs_icon == TRUE)
-		icon = 'modular_gs/icons/obj/clothing/modsuit/mod_clothing.dmi'
-		worn_icon = 'modular_gs/icons/mob/clothing/modsuit/mod_clothing.dmi'
-		icon_state = "[theme]-control"
-		inhand_icon_state = "[theme]-control"
-/*
-		parts["helmet"]?.icon = 'modular_gs/icons/obj/clothing/modsuit/mod_clothing.dmi'
-		parts["helmet"]?.worn_icon = 'modular_gs/icons/mob/clothing/modsuit/mod_clothing.dmi'
-		parts["helmet"]?.icon_state = "[theme]-helmet"
-		parts["helmet"]?.inhand_icon_state = "[theme]-helmet"
-
-		parts["chestplate"]?.icon = 'modular_gs/icons/obj/clothing/modsuit/mod_clothing.dmi'
-		parts["chestplate"]?.worn_icon = 'modular_gs/icons/mob/clothing/modsuit/mod_clothing.dmi'
-		parts["chestplate"]?.icon_state = "[theme]-chestplate"
-		parts["chestplate"]?.inhand_icon_state = "[theme]-chestplate"
-
-		parts["gauntlets"]?.icon = 'modular_gs/icons/obj/clothing/modsuit/mod_clothing.dmi'
-		parts["gauntlets"]?.worn_icon = 'modular_gs/icons/mob/clothing/modsuit/mod_clothing.dmi'
-		parts["gauntlets"]?.icon_state = "[theme]-gauntlets"
-		parts["gauntlets"]?.inhand_icon_state = "[theme]-gauntlets"
-
-		parts["boots"]?.icon = 'modular_gs/icons/obj/clothing/modsuit/mod_clothing.dmi'
-		parts["boots"]?.worn_icon = 'modular_gs/icons/mob/clothing/modsuit/mod_clothing.dmi'
-		parts["boots"]?.icon_state = "[theme]-boots"
-		parts["boots"]?.inhand_icon_state = "[theme]-boots"
-*/
-
-/datum/mod_theme
-	var/use_gs_icon = FALSE
 
 /datum/armor/exoskeleton
 	melee = 5
@@ -150,7 +115,6 @@
 //list(MELEE = 5, BULLET = 5, LASER = 5, ENERGY = 5, BOMB = 5, BIO = 5, FIRE = 5, ACID = 5, WOUND = 5, RAD = 5)
 
 /datum/mod_theme/exoskeleton
-	use_gs_icon = TRUE
 	name = "exoskeleton"
 	desc = "The design for a GATO-branded mobility exoskeleton"
 	extended_desc = "To combat the obesity epidemic that spreads on its stations, \
@@ -171,6 +135,8 @@
 	allowed_suit_storage = list(/obj/item/flashlight, /obj/item/tank/internals)
 	variants = list(
 		"exoskeleton" = list(
+			MOD_ICON_OVERRIDE = 'modular_gs/icons/obj/clothing/modsuit/mod_clothing.dmi',
+			MOD_WORN_ICON_OVERRIDE = 'modular_gs/icons/mob/clothing/modsuit/mod_clothing.dmi',
 			/obj/item/clothing/head/mod = list(
 				UNSEALED_LAYER = NECK_LAYER,
 				UNSEALED_CLOTHING = NONE,
@@ -202,6 +168,8 @@
 			),
 		),
 		"invisible" = list(
+			MOD_ICON_OVERRIDE = 'modular_gs/icons/obj/clothing/modsuit/mod_clothing.dmi',
+			MOD_WORN_ICON_OVERRIDE = 'modular_gs/icons/mob/clothing/modsuit/mod_clothing.dmi',
 			/obj/item/clothing/head/mod = list(
 				UNSEALED_LAYER = NECK_LAYER,
 				UNSEALED_CLOTHING = NONE,
@@ -241,7 +209,6 @@
 	desc = "A pre-built GATO mobility exoskeleton, designed to support high weights, favor movement and weight loss."
 	theme = /datum/mod_theme/exoskeleton
 	core = /obj/item/mod/core/standard
-	//cell = /obj/item/stock_parts/cell/upgraded/plus
 
 /obj/item/mod/control/pre_equipped/exoskeleton/locked
 	name = "MOD control unit (locked)"
