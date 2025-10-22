@@ -118,7 +118,7 @@
 	            /obj/item/soap/gato = 6,
 				/obj/item/book/manual/gato_spacelaw = 6,
 				/obj/item/book/manual/fatty_chems = 6,
-				/obj/item/soap/gato = 4,
+				/obj/item/book/lorebooks/welcome_to_gato = 6,
 				/obj/item/storage/fancy/cigarettes/gatito = 8,
 				/obj/item/sign/flag/gato = 10,
 				/obj/item/toy/cards/deck/gato = 5,

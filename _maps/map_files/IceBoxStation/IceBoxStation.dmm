@@ -11154,12 +11154,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/station/commons/storage/mining)
-"cZN" = (
-/obj/structure/table/wood,
-/obj/item/soap/nanotrasen,
-/obj/effect/mapping_helpers/broken_floor,
-/turf/open/floor/wood,
-/area/station/maintenance/port/aft)
 "cZO" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -31688,9 +31682,6 @@
 	dir = 1
 	},
 /obj/structure/cable,
-/obj/structure/sign/nanotrasen{
-	pixel_y = 32
-	},
 /turf/open/floor/iron/cafeteria{
 	dir = 8
 	},
@@ -174800,8 +174791,8 @@ iDt
 iDt
 iDt
 cCb
-jai
-nLB
+tet
+scw
 qXg
 rsY
 rsY
@@ -176092,8 +176083,8 @@ iDt
 iDt
 iDt
 iDt
-jai
-wkB
+tet
+iDt
 iDt
 iDt
 iDt
@@ -236753,7 +236744,7 @@ utC
 utC
 ptf
 hZQ
-cZN
+sUS
 ybu
 qrr
 pRj
