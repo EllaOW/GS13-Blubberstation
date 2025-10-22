@@ -40458,9 +40458,34 @@
 /obj/structure/table,
 /obj/machinery/firealarm/directional/north,
 /obj/machinery/light/directional/north,
-/obj/item/stack/medical/mesh,
-/obj/item/stack/medical/gauze,
-/obj/item/stack/medical/suture,
+/obj/item/stack/medical/mesh{
+	pixel_x = 11;
+	pixel_y = 3
+	},
+/obj/item/stack/medical/gauze{
+	pixel_x = -4;
+	pixel_y = -1
+	},
+/obj/item/stack/medical/suture{
+	pixel_x = 9;
+	pixel_y = -4
+	},
+/obj/item/holosign_creator/hardlight_wheelchair{
+	pixel_x = -6;
+	pixel_y = 9
+	},
+/obj/item/holosign_creator/hardlight_wheelchair{
+	pixel_x = -6;
+	pixel_y = 9
+	},
+/obj/item/holosign_creator/hardlight_wheelchair{
+	pixel_x = -6;
+	pixel_y = 9
+	},
+/obj/item/holosign_creator/hardlight_wheelchair{
+	pixel_x = -6;
+	pixel_y = 9
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/medbay/lobby)
 "efn" = (
