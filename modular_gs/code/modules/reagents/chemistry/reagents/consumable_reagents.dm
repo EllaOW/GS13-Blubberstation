@@ -7,10 +7,20 @@
 	taste_description = "lard"
 	color = "#e2e1b1"
 	metabolization_rate = 0.5 * REAGENTS_METABOLISM
+	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC | REAGENT_PROTEAN // Allow all kinds of humanoids to process the chem
 
 /datum/reagent/consumable/lipoifier/on_mob_life(mob/living/carbon/M)
 	M.adjust_fatness(15, FATTENING_TYPE_CHEM)
 	return ..()
+
+/datum/reagent/consumable/lipoifier/on_mob_metabolize(mob/living/affected_mob)
+	. = ..()
+	if (HAS_TRAIT(affected_mob, TRAIT_NUTRICIOUS_BOOST))
+		affected_mob.add_movespeed_modifier(/datum/movespeed_modifier/nutricious_boost/lipoifier)
+
+/datum/reagent/consumable/lipoifier/on_mob_end_metabolize(mob/living/affected_mob)
+	. = ..()
+	affected_mob.remove_movespeed_modifier(/datum/movespeed_modifier/nutricious_boost/lipoifier)
 
 //BURPY CHEM
 

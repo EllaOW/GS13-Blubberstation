@@ -46,6 +46,8 @@ export const ZubbersCharacterDirectory = (props) => {
     personalVoreTag,
     personalHypnoTag,
     personalNonconTag,
+    personalFeedingTag,
+    personalNonconFeedingTag,
   } = data;
 
   return (
@@ -75,6 +77,12 @@ export const ZubbersCharacterDirectory = (props) => {
             </LabeledList.Item>
             <LabeledList.Item label="Noncon">
               <Button fluid>{personalNonconTag}</Button>
+            </LabeledList.Item>
+            <LabeledList.Item label="Feeding">
+              <Button fluid>{personalFeedingTag}</Button>
+            </LabeledList.Item>
+            <LabeledList.Item label="Noncon Feeding">
+              <Button fluid>{personalNonconFeedingTag}</Button>
             </LabeledList.Item>
           </LabeledList>
         </Section>
@@ -221,6 +229,22 @@ const CharacterDirectoryList = (props) => {
             Vore
           </SortButton>
           <SortButton
+            id="feeding"
+            sortId={sortId}
+            sortOrder={sortOrder}
+            onClick={handleSort}
+          >
+            Feeding
+          </SortButton>
+          <SortButton
+            id="feeding_nc"
+            sortId={sortId}
+            sortOrder={sortOrder}
+            onClick={handleSort}
+          >
+            Noncon Feeding
+          </SortButton>
+          <SortButton
             id="hypno"
             sortId={sortId}
             sortOrder={sortOrder}
@@ -261,6 +285,8 @@ const CharacterDirectoryList = (props) => {
             <Table.Cell>{character.gender}</Table.Cell>
             <Table.Cell>{character.erp}</Table.Cell>
             <Table.Cell>{character.vore}</Table.Cell>
+            <Table.Cell>{character.feeding}</Table.Cell>
+            <Table.Cell>{character.feeding_nc}</Table.Cell>
             <Table.Cell>{character.hypno}</Table.Cell>
             <Table.Cell>{character.noncon}</Table.Cell>
             <Table.Cell collapsing textAlign="right">

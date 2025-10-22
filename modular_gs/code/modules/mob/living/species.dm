@@ -63,11 +63,18 @@
 		return FALSE
 
 	var/datum/preferences/preferences = fatty.client.prefs
-	if(HAS_TRAIT(fatty, TRAIT_NO_HELPLESSNESS))
+	if(!HAS_TRAIT(fatty, TRAIT_UNIVERSAL_GAINER) && HAS_TRAIT(fatty, TRAIT_NO_HELPLESSNESS))
 		return FALSE
 
 	var/immobility_BFI = preferences.read_preference(/datum/preference/numeric/helplessness/no_movement)
-	if(immobility_BFI > 0)
+	if(HAS_TRAIT(fatty, TRAIT_HELPLESS_IMMOBILITY))
+		immobility_BFI = FATNESS_LEVEL_IMMOBILE
+		if (HAS_TRAIT(fatty, TRAIT_STRONGLEGS))
+			immobility_BFI = FATNESS_LEVEL_BLOB
+		if (HAS_TRAIT(fatty, TRAIT_WEAKLEGS))
+			immobility_BFI = FATNESS_LEVEL_BARELYMOBILE
+	
+	if (immobility_BFI > 0)
 		if(!HAS_TRAIT_FROM(fatty, TRAIT_NO_MOVE, HELPLESSNESS_TRAIT))
 			if(fatty.fatness >= immobility_BFI)
 				to_chat(fatty, span_warning("You have become too fat to move anymore."))
@@ -82,22 +89,31 @@
 			REMOVE_TRAIT(fatty, TRAIT_NO_MOVE, HELPLESSNESS_TRAIT)
 
 	var/clumsy_BFI = preferences.read_preference(/datum/preference/numeric/helplessness/clumsy)
-	if(clumsy_BFI)
+	if(HAS_TRAIT(fatty, TRAIT_HELPLESS_CLUMSY))
+		clumsy_BFI = FATNESS_LEVEL_BARELYMOBILE
+
+	if (clumsy_BFI > 0)
 		if(!HAS_TRAIT_FROM(fatty, TRAIT_CLUMSY, HELPLESSNESS_TRAIT))
 			if(fatty.fatness >= clumsy_BFI)
 				to_chat(fatty, span_warning("Your newfound weight has made it hard to manipulate objects."))
 				ADD_TRAIT(fatty, TRAIT_CLUMSY, HELPLESSNESS_TRAIT)
+				ADD_TRAIT(fatty, TRAIT_CHUNKYFINGERS, HELPLESSNESS_TRAIT)
 
 		else if(fatty.fatness < clumsy_BFI)
 			to_chat(fatty, span_notice("You feel like you have lost enough weight to recover your dexterity."))
 			REMOVE_TRAIT(fatty, TRAIT_CLUMSY, HELPLESSNESS_TRAIT)
+			REMOVE_TRAIT(fatty, TRAIT_CHUNKYFINGERS, HELPLESSNESS_TRAIT)
 
 	else
 		if(HAS_TRAIT_FROM(fatty, TRAIT_CLUMSY, HELPLESSNESS_TRAIT))
 			REMOVE_TRAIT(fatty, TRAIT_CLUMSY, HELPLESSNESS_TRAIT)
+			REMOVE_TRAIT(fatty, TRAIT_CHUNKYFINGERS, HELPLESSNESS_TRAIT)
 
 	var/nearsighted_BFI = preferences.read_preference(/datum/preference/numeric/helplessness/nearsighted)
-	if(nearsighted_BFI)
+	if (HAS_TRAIT(fatty, TRAIT_HELPLESS_BIG_CHEEKS))
+		nearsighted_BFI = FATNESS_LEVEL_BLOB
+	
+	if(nearsighted_BFI > 0)
 		if(!fatty.is_nearsighted_from(HELPLESSNESS_TRAIT))
 			if(fatty.fatness >= nearsighted_BFI)
 				to_chat(fatty, span_warning("Your fat makes it difficult to see the world around you. "))
@@ -112,7 +128,10 @@
 			fatty.cure_nearsighted(HELPLESSNESS_TRAIT)
 
 	var/hidden_face_BFI = preferences.read_preference(/datum/preference/numeric/helplessness/hidden_face)
-	if(hidden_face_BFI)
+	if (HAS_TRAIT(fatty, TRAIT_HELPLESS_BIG_CHEEKS))
+		hidden_face_BFI = FATNESS_LEVEL_BLOB
+
+	if(hidden_face_BFI > 0)
 		if(!HAS_TRAIT_FROM(fatty, TRAIT_DISFIGURED, HELPLESSNESS_TRAIT))
 			if(fatty.fatness >= hidden_face_BFI)
 				to_chat(fatty, span_warning("You have gotten fat enough that your face is now unrecognizable. "))
@@ -127,7 +146,10 @@
 			REMOVE_TRAIT(fatty, TRAIT_DISFIGURED, HELPLESSNESS_TRAIT)
 
 	var/mute_BFI = preferences.read_preference(/datum/preference/numeric/helplessness/mute)
-	if(mute_BFI)
+	if (HAS_TRAIT(fatty, TRAIT_HELPLESS_MUTE))
+		mute_BFI = FATNESS_LEVEL_BLOB
+
+	if(mute_BFI > 0)
 		if(!HAS_TRAIT_FROM(fatty, TRAIT_MUTE, HELPLESSNESS_TRAIT))
 			if(fatty.fatness >= mute_BFI)
 				to_chat(fatty, span_warning("Your fat makes it impossible for you to speak."))
@@ -142,7 +164,10 @@
 			REMOVE_TRAIT(fatty, TRAIT_MUTE, HELPLESSNESS_TRAIT)
 
 	var/immobile_arms_BFI = preferences.read_preference(/datum/preference/numeric/helplessness/immobile_arms)
-	if(immobile_arms_BFI)
+	if (HAS_TRAIT(fatty, TRAIT_HELPLESS_IMMOBILE_ARMS))
+		immobile_arms_BFI = FATNESS_LEVEL_BLOB
+
+	if(immobile_arms_BFI > 0)
 		if(!HAS_TRAIT_FROM(fatty, TRAIT_PARALYSIS_L_ARM, HELPLESSNESS_TRAIT))
 			if(fatty.fatness >= immobile_arms_BFI)
 				to_chat(fatty, span_warning("Your arms are now engulfed in fat, making it impossible to move your arms. "))
@@ -163,7 +188,10 @@
 			fatty.update_body_parts()
 
 	var/jumpsuit_bursting_BFI = preferences.read_preference(/datum/preference/numeric/helplessness/clothing_jumpsuit)
-	if(jumpsuit_bursting_BFI)
+	if (HAS_TRAIT(fatty, TRAIT_HELPLESS_CLOTHING))
+		jumpsuit_bursting_BFI = FATNESS_LEVEL_IMMOBILE
+
+	if(jumpsuit_bursting_BFI > 0)
 		if(!HAS_TRAIT_FROM(fatty, TRAIT_NO_JUMPSUIT, HELPLESSNESS_TRAIT))
 			if(fatty.fatness >= jumpsuit_bursting_BFI)
 				ADD_TRAIT(fatty, TRAIT_NO_JUMPSUIT, HELPLESSNESS_TRAIT)
@@ -182,7 +210,10 @@
 			REMOVE_TRAIT(fatty, TRAIT_NO_JUMPSUIT, HELPLESSNESS_TRAIT)
 
 	var/clothing_bursting_BFI = preferences.read_preference(/datum/preference/numeric/helplessness/clothing_misc)
-	if(clothing_bursting_BFI)
+	if (HAS_TRAIT(fatty, TRAIT_HELPLESS_CLOTHING))
+		clothing_bursting_BFI = FATNESS_LEVEL_BARELYMOBILE
+
+	if(clothing_bursting_BFI > 0)
 		if(!HAS_TRAIT_FROM(fatty, TRAIT_NO_MISC, HELPLESSNESS_TRAIT))
 			if(fatty.fatness >= clothing_bursting_BFI)
 				ADD_TRAIT(fatty, TRAIT_NO_MISC, HELPLESSNESS_TRAIT)
@@ -211,7 +242,10 @@
 			REMOVE_TRAIT(fatty, TRAIT_NO_MISC, HELPLESSNESS_TRAIT)
 
 	var/belt_BFI = preferences.read_preference(/datum/preference/numeric/helplessness/belts)
-	if(belt_BFI)
+	if (HAS_TRAIT(fatty, TRAIT_HELPLESS_BELTS))
+		belt_BFI = FATNESS_LEVEL_EXTREMELY_OBESE
+
+	if(belt_BFI > 0)
 		if(!HAS_TRAIT_FROM(fatty, TRAIT_NO_BELT, HELPLESSNESS_TRAIT))
 			if(fatty.fatness >= belt_BFI)
 				ADD_TRAIT(fatty, TRAIT_NO_BELT, HELPLESSNESS_TRAIT)
@@ -238,7 +272,10 @@
 			REMOVE_TRAIT(fatty, TRAIT_NO_BELT, HELPLESSNESS_TRAIT)
 
 	var/back_BFI = preferences.read_preference(/datum/preference/numeric/helplessness/clothing_back)
-	if(back_BFI)
+	if (HAS_TRAIT(fatty, TRAIT_HELPLESS_BACKPACKS))
+		back_BFI = FATNESS_LEVEL_IMMOBILE
+	
+	if(back_BFI > 0)
 		if(!HAS_TRAIT_FROM(fatty, TRAIT_NO_BACKPACK, HELPLESSNESS_TRAIT))
 			if(fatty.fatness >= back_BFI)
 				ADD_TRAIT(fatty, TRAIT_NO_BACKPACK, HELPLESSNESS_TRAIT)
@@ -256,7 +293,10 @@
 			REMOVE_TRAIT(fatty, TRAIT_NO_BACKPACK, HELPLESSNESS_TRAIT)
 
 	var/no_buckle_BFI = preferences.read_preference(/datum/preference/numeric/helplessness/no_buckle)
-	if(no_buckle_BFI)
+	if (HAS_TRAIT(fatty, TRAIT_HELPLESS_NO_BUCKLE))
+		no_buckle_BFI = FATNESS_LEVEL_EXTREMELY_OBESE
+
+	if(no_buckle_BFI > 0)
 		if(!HAS_TRAIT_FROM(fatty, TRAIT_NO_BUCKLE, HELPLESSNESS_TRAIT))
 			if(fatty.fatness >= no_buckle_BFI)
 				to_chat(fatty, span_warning("You feel like you've gotten too big to fit on anything."))
@@ -420,7 +460,7 @@
 	if(HAS_TRAIT(H, TRAIT_FATTER))
 		handle_fatness_trait(
 			TRAIT_FATTER,
-			TRAIT_FAT,
+			TRAIT_ROUNDED,
 			TRAIT_VERYFAT,
 			FATNESS_LEVEL_FATTER,
 			FATNESS_LEVEL_VERYFAT,
@@ -428,9 +468,9 @@
 			span_danger("Your clothes creak quietly!"),
 			2)
 		return
-	if(HAS_TRAIT(H, TRAIT_FAT))
+	if(HAS_TRAIT(H, TRAIT_ROUNDED))
 		handle_fatness_trait(
-			TRAIT_FAT,
+			TRAIT_ROUNDED,
 			null,
 			TRAIT_FATTER,
 			FATNESS_LEVEL_FAT,
@@ -442,7 +482,7 @@
 		handle_fatness_trait(
 			null,
 			null,
-			TRAIT_FAT,
+			TRAIT_ROUNDED,
 			0,
 			FATNESS_LEVEL_FAT,
 			null,

@@ -43,13 +43,18 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	//SKYRAT EDIT ADDITION END
 	//BUBBER EDIT ADDITION BEGIN
 	list(/datum/quirk/featherweight, /datum/quirk/oversized),
-	list(/datum/quirk/overweight, /datum/quirk/obese),
+	//list(/datum/quirk/overweight, /datum/quirk/obese), GS13 EDIT
 	list(/datum/quirk/dominant_aura, /datum/quirk/well_trained),
 	list(/datum/quirk/equipping/entombed, /datum/quirk/equipping/seamless_clothes),
 	list(/datum/quirk/equipping/entombed, /datum/quirk/badback),
 	list(/datum/quirk/unblinking, /datum/quirk/item_quirk/fluoride_stare),
 	list(/datum/quirk/micro, /datum/quirk/micro/smaller, /datum/quirk/micro/smallest, /datum/quirk/oversized),
 	//BUBBER EDIT ADDITION END
+	// GS13 EDIT
+	list(/datum/quirk/fat_aversion, /datum/quirk/fat_affinity),
+	list(/datum/quirk/weak_legs, /datum/quirk/strong_legs),
+	list(/datum/quirk/helplessness/chair_breakage, /datum/quirk/helplessness/no_buckle),
+	// GS13 END EDIT
 ))
 
 GLOBAL_LIST_INIT(quirk_string_blacklist, generate_quirk_string_blacklist())
