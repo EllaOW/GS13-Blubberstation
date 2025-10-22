@@ -273,7 +273,7 @@
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 25,
 		/datum/reagent/consumable/nutriment/protein = 20,
-		/datum/reagent/consumable/nutriment/fat/oil = 5,
+		/datum/reagent/consumable/nutriment/fat/oil/corn = 5,
 		/datum/reagent/consumable/nutriment/fat/oil = 5,
 		/datum/reagent/consumable/nutriment/fat = 5,
 	)
