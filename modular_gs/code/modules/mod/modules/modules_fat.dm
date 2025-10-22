@@ -215,15 +215,16 @@
 	desc = "A pre-built GATO mobility exoskeleton, designed to support high weights, favor movement and weight loss. This model's modules cannot be removed."
 	theme = /datum/mod_theme/exoskeleton/locked
 
-/datum/design/module/exoskeleton
+/datum/design/mod_shell/exoskeleton
 	name = "MOD exoskeleton"
+	desc = "A pre-built GATO mobility exoskeleton, designed to support high weights, favor movement and weight loss."
 	id = "mod_exoskeleton"
-	materials = list(/datum/material/iron = 5000, /datum/material/glass = 5000, /datum/material/plasma = 5000)
+	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT*50, /datum/material/glass = SHEET_MATERIAL_AMOUNT*50, /datum/material/plasma = SHEET_MATERIAL_AMOUNT*50)
 	build_path = /obj/item/mod/control/pre_equipped/exoskeleton
 	desc = "A GATO-designed assistance exoskeleton based on MODsuit tech."
 	build_type = MECHFAB
 	construction_time = 10 SECONDS
-	category = list("MODsuit Chassis", "MODsuit Designs")
+	category = list(RND_CATEGORY_MODSUITS + RND_SUBCATEGORY_MODUITS_CHASSIS)
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /*
