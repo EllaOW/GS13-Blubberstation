@@ -227,6 +227,14 @@
 	category = list(RND_CATEGORY_MODSUITS + RND_SUBCATEGORY_MODUITS_CHASSIS)
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
+/obj/item/mod/control/pre_equipped/exoskeleton/wrench_act(mob/living/user, obj/item/wrench)
+	if(seconds_electrified && get_charge() && shock(user))
+		return ITEM_INTERACT_BLOCKING
+	if(open)
+		balloon_alert(user, "core cannot be removed!")
+		playsound(src, 'sound/machines/scanner/scanbuzz.ogg', 25, TRUE, SILENCED_SOUND_EXTRARANGE)
+		return ITEM_INTERACT_BLOCKING
+
 /*
 /datum/gear/hands/exoskeleton
 	name = "MOD exoskeleton"
