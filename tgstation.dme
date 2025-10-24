@@ -7003,6 +7003,7 @@
 #include "modular_gs\code\modules\research\designs\nutri_designs\nutritech_weapon_designs.dm"
 #include "modular_gs\code\modules\research\nanites\nanite_programs\fattening.dm"
 #include "modular_gs\code\modules\research\techweb\nutritech_nodes.dm"
+#include "modular_gs\code\modules\surgery\organs\internal\stomach\stomach_ethereal.dm"
 #include "modular_gs\code\modules\vending\gs_vendors.dm"
 #include "modular_gs\code\modules\vending\vending.dm"
 #include "modular_gs\code\modules\vending\wadrobes.dm"
@@ -10070,4 +10071,3 @@
 #include "modular_zubbers\modules\wood_walls\code\new_floors.dm"
 #include "modular_gs\code\modules\customization\modules\mob\living\carbon\human\species\hemophage\hemophage_status_effects.dm"
 // END_INCLUDE
-
