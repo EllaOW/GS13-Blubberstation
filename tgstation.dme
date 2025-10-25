@@ -6952,8 +6952,8 @@
 #include "modular_gs\code\mobs\chocoslime.dm"
 #include "modular_gs\code\modules\atmospherics\gasmixtures\gas_types.dm"
 #include "modular_gs\code\modules\atmospherics\gasmixtures\reactions.dm"
-#include "modular_gs\code\modules\atmospherics\machinery\portable\canister.dm"
 #include "modular_gs\code\modules\atmospherics\machinery\components\gas_recipe_machines\atmos_machine_recipes.dm"
+#include "modular_gs\code\modules\atmospherics\machinery\portable\canister.dm"
 #include "modular_gs\code\modules\borg\feeding_tools.dm"
 #include "modular_gs\code\modules\cargo\rebase_packs.dm"
 #include "modular_gs\code\modules\client\preferences\erp_preferences.dm"
@@ -6966,6 +6966,7 @@
 #include "modular_gs\code\modules\client\preferences\wg_source_preferences.dm"
 #include "modular_gs\code\modules\clothing\under\jobs\modular_items.dm"
 #include "modular_gs\code\modules\clothing\under\jobs\modular_clothing\dual_tone.dm"
+#include "modular_gs\code\modules\customization\modules\mob\living\carbon\human\species\hemophage\hemophage_status_effects.dm"
 #include "modular_gs\code\modules\customization\species\proteans\organs\protean_stomach.dm"
 #include "modular_gs\code\modules\food_and_drinks\bigbottle.dm"
 #include "modular_gs\code\modules\food_and_drinks\drinks.dm"
@@ -10072,5 +10073,4 @@
 #include "modular_zubbers\modules\taur_mechanics\taur_clothing_offset.dm"
 #include "modular_zubbers\modules\wood_walls\code\mineral_walls.dm"
 #include "modular_zubbers\modules\wood_walls\code\new_floors.dm"
-#include "modular_gs\code\modules\customization\modules\mob\living\carbon\human\species\hemophage\hemophage_status_effects.dm"
 // END_INCLUDE
