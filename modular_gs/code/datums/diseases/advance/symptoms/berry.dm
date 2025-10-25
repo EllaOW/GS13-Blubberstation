@@ -51,7 +51,7 @@
 			new /obj/effect/decal/cleanable/juice(M.loc)
 			playsound(M.loc, 'sound/effects/splat.ogg',rand(10,50), 1)*/
 		return
-	..()
+	. = ..()
 /*
 /obj/effect/decal/cleanable/juice
 	name = "berry juice"
