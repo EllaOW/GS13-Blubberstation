@@ -154,5 +154,5 @@
 	var/time_passed = 0
 
 /datum/quirk/permaberry/process(seconds_per_tick)
-		quirk_holder.reagents.add_reagent(/datum/reagent/blueberry_juice, 0.2 + min(1.8, (time_passed / 1200)))
+		quirk_holder.reagents.add_reagent(/datum/reagent/blueberry_juice, 0.05 + min(0.15, (time_passed / 48000)))
 		time_passed += seconds_per_tick
