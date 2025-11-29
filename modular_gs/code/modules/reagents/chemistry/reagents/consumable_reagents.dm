@@ -114,7 +114,7 @@
 
 /datum/reagent/micro_calorite/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
-	affected_mob.fullness_reduction += 25	// default reduction rate is 15 per tick, so this gives 10 per tick
+	affected_mob.adjust_hunger(10)
 
 /datum/reagent/micro_calorite/on_mob_add(mob/living/affected_mob, amount)
 	. = ..()
