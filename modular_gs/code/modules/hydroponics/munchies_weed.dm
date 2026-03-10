@@ -63,6 +63,6 @@
 
 /datum/reagent/drug/munchies/on_mob_life(mob/living/carbon/person)
 	. = ..()
-	if(prob(10))
-		to_chat(person, "<span class='warning'>[pick("You feel a little ravenous...", "You could really go for a snack right now...", "The taste of food seems really enticing right now...", "Your belly groans, demanding food...")]</span>")
+	/*if(prob(10))
+		to_chat(person, "<span class='warning'>[pick("You feel a little ravenous...", "You could really go for a snack right now...", "The taste of food seems really enticing right now...", "Your belly groans, demanding food...")]</span>")*/ //removed status effect messages
 	person.adjust_hunger(15)

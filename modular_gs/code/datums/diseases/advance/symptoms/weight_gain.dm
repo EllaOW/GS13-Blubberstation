@@ -24,10 +24,10 @@
 		return FALSE
 	switch(A.stage)
 		if(1, 2, 3, 4)
-			if(prob(base_message_chance))
-				to_chat(M, "<span class='warning'>[pick("You feel oddly full...", "You feel more plush...", "You feel more huggable...", "You hear an odd gurgle from your stomach")]</span>")
+			/*if(prob(base_message_chance))
+				to_chat(M, "<span class='warning'>[pick("You feel oddly full...", "You feel more plush...", "You feel more huggable...", "You hear an odd gurgle from your stomach")]</span>")*/  //removal of wg status messages
 		else
-			to_chat(M, "<span class='warning'><i>[pick("You feel your body churn...", "You feel heavier...", "You hear an ominous gurgle from your belly...", "You feel bulkier...")]</i></span>")
+			/*to_chat(M, "<span class='warning'><i>[pick("You feel your body churn...", "You feel heavier...", "You hear an ominous gurgle from your belly...", "You feel bulkier...")]</i></span>") */  //removal of wg status messages
 			if(A.totalStageSpeed() >= 12) //get chunkier quicker
 				M.adjust_fatness(70, FATTENING_TYPE_VIRUS)
 			else if(A.totalStageSpeed() >= 7)
