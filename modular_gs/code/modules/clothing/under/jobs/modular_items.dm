@@ -17,7 +17,7 @@
 
 
 // Called by handle_fatness, this is called periodically to tell all items to check for sprites and, if needed, build new ones
-/mob/living/carbon/proc/handle_modular_items(adjustment_amount, type_of_fattening = FATTENING_TYPE_ITEM)
+/mob/living/carbon/proc/handle_modular_items()
 	for(var/obj/item/item in modular_items)
 		item.update_modular_overlays(src)
 
@@ -160,8 +160,6 @@
 //General function to get the appropriate shape and size for the belly, accounting for fullness
 /obj/item/proc/get_belly_size(obj/item/organ/genital/G)
 	var/size = G.genital_size
-	if(G.genital_size > 9)
-		size = 9
 	var/shape
 	if(G.owner.fullness <= FULLNESS_LEVEL_BLOATED)
 		switch(G.genital_type)
@@ -180,6 +178,8 @@
 			if(FULLNESS_LEVEL_NOMOREPLZ to INFINITY)// Take the stuffed sprite of size + 2
 				stuffed_modifier = 2
 		size = size + stuffed_modifier
+		
+	size = min(size, 9)
 
 	return "[shape]_[size]"
 
