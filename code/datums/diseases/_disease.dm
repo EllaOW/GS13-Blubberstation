@@ -274,7 +274,7 @@
 /datum/disease/proc/has_cure()
 	if(!(disease_flags & (CURABLE | CHRONIC)))
 		return FALSE
-
+// start of GS-13 changes
 	if(!affected_mob || !affected_mob.reagents || cures == null)
 		return FALSE
 
@@ -285,10 +285,15 @@
 			if(istype(reagent, C_id))
 				.++
 				break
-
+// end of GS-13 changes
 	if(!. || (needs_all_cures && . < cures.len))
 		return FALSE
 
+/* original code
+	. = cures.len
+	for(var/C_id in cures)
+		if(!affected_mob.reagents.has_reagent(target_reagent = C_id, check_subtypes = TRUE))
+			.--*/
 /**
  * Handles performing a spread-via-air
  *
