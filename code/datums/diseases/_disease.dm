@@ -275,10 +275,17 @@
 	if(!(disease_flags & (CURABLE | CHRONIC)))
 		return FALSE
 
-	. = cures.len
-	for(var/C_id in cures)
-		if(!affected_mob.reagents.has_reagent(target_reagent = C_id, check_subtypes = TRUE))
-			.--
+	if(!affected_mob || !affected_mob.reagents || cures == null)
+		return FALSE
+
+	. = 0
+	var/list/cure_list = islist(cures) ? cures : list(cures)
+	for(var/C_id in cure_list)
+		for(var/datum/reagent/reagent as anything in affected_mob.reagents.reagent_list)
+			if(istype(reagent, C_id))
+				.++
+				break
+
 	if(!. || (needs_all_cures && . < cures.len))
 		return FALSE
 
